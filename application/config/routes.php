@@ -59,10 +59,14 @@ $route['(:any).pagina'] = 'pages/view/$1';
 $route['pages'] = 'index_controller/index';
 $route['pages/(:num)'] = 'index_controller/index/$1';
 $route['indexprivat'] = 'index_controller/indexprivat';
+$route['indexprofe'] = 'index_controller/indexprofe';
+$route['indexalumne'] = 'index_controller/indexalumne';
 $route['login'] = 'index_controller/login';
 $route['registra'] = 'index_controller/registra';
 $route['videos'] = 'index_controller/videos';
 $route['index'] = 'index_controller/index';
+$route['logout'] = 'index_controller/logout';
+$route['modificarUsuari'] = 'index_controller/modificarUsuari';
 
 $route['adminUsuaris'] = "index_controller/grocery"; 
 $route['adminUsuaris/(:any)'] = "index_controller/grocery/$1"; 

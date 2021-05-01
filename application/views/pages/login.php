@@ -64,7 +64,7 @@
                                         <a class="small" href="<?php echo base_url('registra'); ?>">Create an Account!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="<?php echo base_url(''); ?>">Home</a>
+                                        <a class="small" href="<?php echo base_url('index'); ?>">Home</a>
                                     </div>
                                 </div>
                             </div>

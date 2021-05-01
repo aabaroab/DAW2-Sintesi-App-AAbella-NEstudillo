@@ -54,8 +54,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="adminUsuaris">Gestionar Usuaris</a>
-                        <a class="collapse-item" href="cards.html">Crear Usuaris</a>
+                        <a class="collapse-item" href="adminUsuaris">Perfil</a>
+                        <!--<a class="collapse-item" href="cards.html">Administrar Alumnes</a>-->
                     </div>
                 </div>
             </li>
@@ -292,7 +292,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    <?php 
+                                    <?php  
                                     echo $user->username;?>
                                     </span>
                                 <img class="img-profile rounded-circle" src="assets/img/undraw_profile.svg">
@@ -300,7 +300,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="<?php echo base_url('modificarUsuari'); ?>">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400" ></i> Profile
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings

@@ -10,8 +10,13 @@
 
 
 
+</div>
+</div>
 
 <!--Inici del footer-->
 </div>
-        </body>
+
+
+</body>
+
 </html>
