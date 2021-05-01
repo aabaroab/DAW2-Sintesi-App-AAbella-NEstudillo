@@ -43,17 +43,16 @@ class Index_controller extends CI_Controller
         $data['title'] = 'Noticies';
         $data['autor'] = '&copy;2020. Noel Estudillo';
         $data['user'] =  $this->ion_auth->user()->row();
-
+        //$group = 1;
 
         if ($this->ion_auth->logged_in()) {
-            $group = 1;
-            if (!$this->ion_auth->in_group($group)) {
+            //if (!$this->ion_auth->in_group($group)) {
             $this->load->view('templates/header_privat', $data);
             $this->load->view('pages/indexprivat', $data);
             $this->load->view('templates/footer', $data);
-            }else{
+            /*}else{
                 $this->load->view('pages/login', $data);
-            }
+            }*/
         } else {
             $this->load->view('pages/login', $data);
         }
@@ -67,13 +66,13 @@ class Index_controller extends CI_Controller
         $data['autor'] = '&copy;2020. Noel Estudillo';
         $data['user'] =  $this->ion_auth->user()->row();
 
-        if ($this->ion_auth->logged_in()) {
+        //if ($this->ion_auth->logged_in()) {
             $this->load->view('templates/header_profe', $data);
             $this->load->view('pages/indexprofe', $data);
             $this->load->view('templates/footer', $data);
-        } else {
+        /*} else {
             $this->load->view('pages/login', $data);
-        }
+        }*/
     }
 
     public function indexalumne()
@@ -82,10 +81,10 @@ class Index_controller extends CI_Controller
 
         $data['title'] = 'Noticies';
         $data['autor'] = '&copy;2020. Noel Estudillo';
-        $group = 3;
+        $group = 'alumne';
 
         if ($this->ion_auth->logged_in()) {
-            if (!$this->ion_auth->in_group($group)) {
+            if ($this->ion_auth->in_group($group)) {
                 $this->load->view('templates/header_alumne', $data);
                 $this->load->view('pages/indexalumne', $data);
                 $this->load->view('templates/footer', $data);
@@ -221,7 +220,7 @@ class Index_controller extends CI_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_subject('Users');
-        $crud->set_theme('datatables');
+        $crud->set_theme('flexigrid');
         $crud->set_table('users');
 
         $data['title'] = 'Noticies';
