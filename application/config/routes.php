@@ -68,8 +68,10 @@ $route['index'] = 'index_controller/index';
 $route['logout'] = 'index_controller/logout';
 $route['modificarUsuari'] = 'index_controller/modificarUsuari';
 
+$route['perfilusuari'] = 'index_controller/perfilusuari';
+
 $route['adminUsuaris'] = "index_controller/grocery"; 
 $route['adminUsuaris/(:any)'] = "index_controller/grocery/$1"; 
-$route['adminUsuaris(:any)/(:any)'] = "index_controller/grocery/$1/$2"; 
+$route['adminUsuaris/(:any)/(:any)'] = "index_controller/grocery/$1/$2"; 
 
 $route['tree/category'] = 'tree/treecat_controller/index'; 

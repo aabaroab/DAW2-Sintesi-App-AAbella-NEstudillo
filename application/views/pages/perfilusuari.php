@@ -22,29 +22,31 @@
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Perfil</h1>
                         </div>
-                        <form class="user" action="<?php echo base_url('modificarUsuari') ?>" method="post">
+                        <div class="text-center" style="margin-bottom: 2%;">
+                            <a class="h6 text-gray-9900 mb-12" style="margin-left: 60%;" href="<?php echo base_url('modificarUsuari') ?>">Modificar</a>
+                        </div>
+                        <form class="user" action="<?php echo base_url('perfilusuari') ?>" method="post">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="NomUsuari" name="NomUsuari" value="<?php echo $info_user->first_name; ?>">
+                                    <input type="text" class="form-control form-control-user" id="NomUsuari" name="NomUsuari" value="<?php echo $info_user->first_name; ?>"  disabled="disabled">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="CognomsUsuari" name="CognomsUsuari" value="<?php echo $info_user->last_name; ?>">
+                                    <input type="text" class="form-control form-control-user" id="CognomsUsuari" name="CognomsUsuari" value="<?php echo $info_user->last_name; ?>" disabled="disabled">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="EmailUsuari" name="EmailUsuari" value="<?php echo $info_user->email; ?>">
+                                <input type="email" class="form-control form-control-user" id="EmailUsuari" name="EmailUsuari" value="<?php echo $info_user->email; ?>" disabled="disabled">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>">
+                                    <input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>" disabled="disabled">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="TelefonUsuari" name="TelefonUsuari" value="<?php echo $info_user->phone; ?>">
+                                    <input type="text" class="form-control form-control-user" id="TelefonUsuari" name="TelefonUsuari" value="<?php echo $info_user->phone; ?>" disabled="disabled">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </form>
                         <hr>
                     </div>

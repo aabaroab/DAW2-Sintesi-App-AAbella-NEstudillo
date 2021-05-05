@@ -16,7 +16,7 @@
 <!--Inici del footer-->
 </div>
 
-
+<?php //echo "<h1>".$autor."</h1>"; ?>
 </body>
 
 </html>
