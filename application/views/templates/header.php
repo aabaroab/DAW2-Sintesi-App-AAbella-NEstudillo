@@ -56,7 +56,7 @@
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="<?php echo base_url('login'); ?>">Login</a>
                         <a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>
-                        <a class="collapse-item" href="<?php echo base_url('index'); ?>">Forgot Password</a>
+                        <a class="collapse-item" href="<?php echo base_url('index'); ?>">Index</a>
                     </div>
                 </div>
             </li>

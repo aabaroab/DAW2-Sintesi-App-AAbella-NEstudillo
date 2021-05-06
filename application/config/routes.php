@@ -67,6 +67,8 @@ $route['videos'] = 'index_controller/videos';
 $route['index'] = 'index_controller/index';
 $route['logout'] = 'index_controller/logout';
 $route['modificarUsuari'] = 'index_controller/modificarUsuari';
+$route['crearusuariadmin'] = 'index_controller/crearusuariadmin';
+$route['canviarpassword'] = 'index_controller/canviarpassword';
 
 $route['perfilusuari'] = 'index_controller/perfilusuari';
 
