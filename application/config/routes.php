@@ -68,12 +68,22 @@ $route['index'] = 'index_controller/index';
 $route['logout'] = 'index_controller/logout';
 $route['modificarUsuari'] = 'index_controller/modificarUsuari';
 $route['crearusuariadmin'] = 'index_controller/crearusuariadmin';
+$route['mostrarcanviarpassword'] = 'index_controller/mostrarcanviarpassword';
 $route['canviarpassword'] = 'index_controller/canviarpassword';
+$route['crearpractica'] = 'index_controller/crearpractica';
 
 $route['perfilusuari'] = 'index_controller/perfilusuari';
 
 $route['adminUsuaris'] = "index_controller/grocery"; 
 $route['adminUsuaris/(:any)'] = "index_controller/grocery/$1"; 
 $route['adminUsuaris/(:any)/(:any)'] = "index_controller/grocery/$1/$2"; 
+
+$route['administraralumnes'] = "index_controller/groceryalumnes"; 
+$route['administraralumnes/(:any)'] = "index_controller/groceryalumnes/$1"; 
+$route['administraralumnes/(:any)/(:any)'] = "index_controller/groceryalumnes/$1/$2"; 
+
+$route['admingroceryusuaris'] = "index_controller/groceryusuaris"; 
+$route['admingroceryusuaris/(:any)'] = "index_controller/groceryusuaris/$1"; 
+$route['admingroceryusuaris/(:any)/(:any)'] = "index_controller/groceryusuaris/$1/$2"; 
 
 $route['tree/category'] = 'tree/treecat_controller/index'; 

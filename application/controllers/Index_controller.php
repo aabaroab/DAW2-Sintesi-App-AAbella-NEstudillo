@@ -103,10 +103,11 @@ class Index_controller extends CI_Controller
         $identity = $this->input->post('exampleInputEmail');
         $password = $this->input->post('exampleInputPassword');
         $verify = $this->ion_auth->login($identity, $password);
+        
         if ($verify == true) {
-            $groupadmin = 1;
-            $groupprofe = 2;
-            $groupalumne = 3;
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+            $groupalumne = 'alumne';
             if ($this->ion_auth->in_group($groupadmin)) {
                 redirect(base_url('indexprivat'));
             } else if ($this->ion_auth->in_group($groupprofe)) {
@@ -213,21 +214,6 @@ class Index_controller extends CI_Controller
     //-------------------------------------------------------------------------
     public function mostrar_tree($categories)
     {
-
-        /*$data['controller'] = $this;
-        $data["cat"] = $this->index_model->get_fills(NULL);
-
-        $groupadmin = 1;
-        $groupprofe = 2;
-        $groupalumne = 3;
-        
-        if ($this->ion_auth->in_group($groupadmin)) {
-            $this->load->view('templates/header_privat', $data);
-        } else if ($this->ion_auth->in_group($groupprofe)) {
-            $this->load->view('templates/header_profe', $data);
-        } else if ($this->ion_auth->in_group($groupalumne)) {
-            $this->load->view('templates/header_alumne', $data);
-        }*/
 
         echo "<ol>";
 
@@ -370,6 +356,8 @@ class Index_controller extends CI_Controller
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
         $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+
 
         $this->load->view('templates/header_privat', $data);
         $this->load->view('pages/adminUsuaris', (array)$output);
@@ -388,25 +376,33 @@ class Index_controller extends CI_Controller
 
         if ($this->ion_auth->logged_in()) {
             //$username = $data['user']->username;
-            $password = $this->input->post('contraseñavella');
+
+            $passwordantic = $this->input->post('contraseñavella');
             $newpassword = $this->input->post('novacontraseña');
             $repeatpassword = $this->input->post('repetircontraseña');
 
-            $data1 = array(
-                //'username' => $username,
-                'password' => $password,
-                'newpassword' => $newpassword,
-                'repeatpassword' => $repeatpassword,
-                //'password' => $this->input->post('contraseñavella'),
-                //'newpassword' => $this->input->post('novacontraseña'),
-                //'repeatpassword' => $this->input->post('repetircontraseña'),
-            );
-            //die('Para');
-            $this->ion_auth->update($id, $data1);
-            //die('Para');
             if ($this->ion_auth->logged_in($data['user']->username) && $newpassword == $repeatpassword) {
-                //redirect(base_url('videos'));
+            $data1 = array(
+                'password' => $newpassword,
+            );
+        }
+
+            $this->ion_auth->update($id, $data1);
+            if ($this->ion_auth->logged_in($data['user']->username) && $newpassword == $repeatpassword) {
+                redirect(base_url('videos'));
             }
+            
+        }
+    }
+
+    public function mostrarcanviarpassword()
+    {
+        $user = $this->ion_auth->user()->row();
+        $id = $user->id;
+        $data["info_user"] = $user;
+        $data['user'] =  $this->ion_auth->user()->row();
+
+        if ($this->ion_auth->logged_in()) {
 
             $groupadmin = 1;
             $groupprofe = 2;
@@ -431,5 +427,118 @@ class Index_controller extends CI_Controller
     }
 
     //----------------------------------------------------------------------------------------------
+
+    public function groceryalumnes()
+    {
+        $crud = new grocery_CRUD();
+
+        $crud->set_subject('Users');
+        $crud->set_theme('flexigrid');
+        $crud->set_table('users');
+
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+
+        $crud->columns('first_name', 'last_name', 'username', 'email', 'phone');
+        //$crud->fields('username', 'password', 'email');
+        $crud->fields('first_name', 'last_name', 'username', 'email', 'phone');
+
+        $crud->unset_add();
+
+
+
+        $output = $crud->render();
+
+        $this->_example_outputalumnes($output);
+    }
+
+    function _example_outputalumnes($output = null)
+    {
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+
+
+        $this->load->view('templates/header_profe', $data);
+        $this->load->view('pages/administraralumnes', (array)$output);
+        $this->load->view('templates/footer', $data);
+    }
+
+    //-------------------------------------------------------------------------------
+
+    public function crearpractica()
+    {
+        $user = $this->ion_auth->user()->row();
+        $id = $user->id;
+        $data["info_user"] = $user;
+        $data['user'] =  $this->ion_auth->user()->row();
+
+        if ($this->ion_auth->logged_in()) {
+
+            $groupprofe = 2;
+
+            if ($this->ion_auth->in_group($groupprofe)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/crearpractica', $data);
+                $this->load->view('templates/footer', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
+    }
+
+
+    //----------------------------------------------------------------------------------------------
+
+    public function groceryusuaris()
+    {
+        $crud = new grocery_CRUD();
+
+        /*$crud->set_subject('Users');
+        $crud->set_theme('flexigrid');
+        $crud->set_table('users');*/
+
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+
+        if ($this->ion_auth->logged_in()) {
+
+            $crud->set_subject('users_groups');
+            $crud->set_theme('flexigrid');
+            $crud->set_table('users_groups');
+            $crud->display_as('user_id', "Nom d'usuari");
+            $crud->display_as('group_id', 'Rol');
+            $crud->set_relation('user_id', 'users', 'username');
+            $crud->field_type("user_id", 'readonly');
+            $crud->set_relation('group_id', 'groups', 'description');
+
+            $crud->unset_add();
+
+
+
+            $output = $crud->render();
+
+            $this->_example_outputusuaris($output);
+        }
+    }
+
+    function _example_outputusuaris($output = null)
+    {
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/admingroceryusuaris', (array)$output);
+                $this->load->view('templates/footer', $data);
+            }
+        }
+    }
+
+    //-------------------------------------------------------------------------------
 
 }

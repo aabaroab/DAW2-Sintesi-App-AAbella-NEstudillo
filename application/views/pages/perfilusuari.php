@@ -30,21 +30,22 @@
                         <form class="user" action="<?php echo base_url('perfilusuari') ?>" method="post">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="NomUsuari" name="NomUsuari" value="<?php echo $info_user->first_name; ?>"  disabled="disabled">
+                                    <p>Nom:</p><input type="text" class="form-control form-control-user" id="NomUsuari" name="NomUsuari" value="<?php echo $info_user->first_name; ?>"  disabled="disabled">
                                 </div>
                                 <div class="col-sm-6">
+                                <p>Cognoms:</p>
                                     <input type="text" class="form-control form-control-user" id="CognomsUsuari" name="CognomsUsuari" value="<?php echo $info_user->last_name; ?>" disabled="disabled">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="EmailUsuari" name="EmailUsuari" value="<?php echo $info_user->email; ?>" disabled="disabled">
+                                <p>Email:</p><input type="email" class="form-control form-control-user" id="EmailUsuari" name="EmailUsuari" value="<?php echo $info_user->email; ?>" disabled="disabled">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>" disabled="disabled">
+                                    <p>Nom Usuari:</p><input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>" disabled="disabled">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="TelefonUsuari" name="TelefonUsuari" value="<?php echo $info_user->phone; ?>" disabled="disabled">
+                                    <p>Telefon:</p><input type="text" class="form-control form-control-user" id="TelefonUsuari" name="TelefonUsuari" value="<?php echo $info_user->phone; ?>" disabled="disabled">
                                 </div>
                             </div>
                         </form>
@@ -58,6 +59,7 @@
 </div>
 
     </div>
+
 
 
 </body>

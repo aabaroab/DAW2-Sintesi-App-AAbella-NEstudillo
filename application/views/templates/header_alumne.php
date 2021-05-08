@@ -81,7 +81,7 @@
                     <h6 class="collapse-header">Login Screens:</h6>
                     <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
                     <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
-                    <a class="collapse-item" href="<?php echo base_url('canviarpassword'); ?>">Forgot Password</a>
+                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Forgot Password</a>
 
                 </div>
             </div>
@@ -92,13 +92,6 @@
             <a class="nav-link" href="<?php echo base_url('videos'); ?>">
                 <i class="fas fa-user-friends"></i>
                 <span>Recursos</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
         </li>
 
         <!-- Divider -->
