@@ -63,13 +63,7 @@
 
     </div>
 
-    <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span><?php echo "<h6>".$autor."</h6>"; ?></span>
-                    </div>
-                </div>
-            </footer>
+
 
 
 <!--<script type="text/javascript" src='<?php echo base_url('assets/ src="js/sb-admin-2.min.js'); ?>'></script>

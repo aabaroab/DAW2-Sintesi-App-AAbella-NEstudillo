@@ -10017,8 +10017,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         text-shadow: none!important;
         box-shadow: none!important
     }
@@ -11192,13 +11192,13 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800);
+    background: url(../img/icono_login2.png);
     background-position: center;
     background-size: cover
 }
 
 .bg-register-image {
-    background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800);
+    background: url(../img/register.jpg);
     background-position: center;
     background-size: cover
 }

@@ -49,11 +49,11 @@
                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </form>
                         <hr>
+                        <!--<div class="text-center">
+                            <a class="small" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Canviar Contraseña</a>
+                        </div>-->
                         <div class="text-center">
-                            <a class="small" href="<?php echo base_url('registra'); ?>">Forgot Password?</a>
-                        </div>
-                        <div class="text-center">
-                            <a class="small" href="<?php echo base_url('login'); ?>">Already have an account? Login!</a>
+                            <a class="small" href="<?php echo base_url('login'); ?>">Login</a>
                         </div>
                         <div class="text-center">
                             <a class="small" href="<?php echo base_url('index'); ?>">Home</a>
@@ -67,14 +67,7 @@
 </div>
 
     </div>
-    
-    <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span><?php echo "<h6>".$autor."</h6>"; ?></span>
-                    </div>
-                </div>
-            </footer>
+
 
     
     <script type="text/javascript" src='<?php echo base_url('assets/ src="js/sb-admin-2.min.js'); ?>'></script>

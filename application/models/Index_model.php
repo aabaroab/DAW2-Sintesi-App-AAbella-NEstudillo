@@ -32,7 +32,17 @@ class Index_model extends CI_Model
         return $query->result_array();
     }
 
-    
+    public function insert_practiques(){
+        $this->load->helper('url');
+
+        $data = array(
+            'titul' => $this->input->post('titolInfografia'),
+            'descripcio' => $this->input->post('descripciocurtaInfografia'),
+            'explicacio' => $this->input->post('descripciollargaInfografia')
+        );
+
+        return $this->db->insert('practiques', $data);
+    }
 
 }
 

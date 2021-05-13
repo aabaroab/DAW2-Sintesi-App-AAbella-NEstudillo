@@ -164,7 +164,8 @@ class Index_controller extends CI_Controller
             'last_name' => $this->input->post('CognomsUsuari'),
             'phone' => $this->input->post('TelefonUsuari'),
         );
-        $group = array('2');
+        $group = array($this->input->post('GrupUsuari'));
+        //$group = array('2');
 
         $this->ion_auth->register($username, $password, $email, $additional_data, $group);
 
@@ -332,7 +333,7 @@ class Index_controller extends CI_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_subject('Users');
-        $crud->set_theme('flexigrid');
+        $crud->set_theme('datatables');
         $crud->set_table('users');
 
         $data['title'] = 'Noticies';
@@ -398,7 +399,7 @@ class Index_controller extends CI_Controller
     public function mostrarcanviarpassword()
     {
         $user = $this->ion_auth->user()->row();
-        $id = $user->id;
+        //$id = $user->id;
         $data["info_user"] = $user;
         $data['user'] =  $this->ion_auth->user()->row();
 
@@ -422,7 +423,9 @@ class Index_controller extends CI_Controller
                 $this->load->view('templates/footer', $data);
             }
         } else {
-            $this->load->view('pages/login', $data);
+            $this->load->view('templates/header', $data);
+            $this->load->view('pages/canviarpassword', $data);
+            $this->load->view('templates/footer', $data);
         }
     }
 
@@ -433,7 +436,7 @@ class Index_controller extends CI_Controller
         $crud = new grocery_CRUD();
 
         $crud->set_subject('Users');
-        $crud->set_theme('flexigrid');
+        $crud->set_theme('datatables');
         $crud->set_table('users');
 
         $data['title'] = 'Noticies';
@@ -478,7 +481,7 @@ class Index_controller extends CI_Controller
             $groupprofe = 2;
 
             if ($this->ion_auth->in_group($groupprofe)) {
-                $this->load->view('templates/header_privat', $data);
+                $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/crearpractica', $data);
                 $this->load->view('templates/footer', $data);
             }
@@ -494,17 +497,13 @@ class Index_controller extends CI_Controller
     {
         $crud = new grocery_CRUD();
 
-        /*$crud->set_subject('Users');
-        $crud->set_theme('flexigrid');
-        $crud->set_table('users');*/
-
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
 
         if ($this->ion_auth->logged_in()) {
 
             $crud->set_subject('users_groups');
-            $crud->set_theme('flexigrid');
+            $crud->set_theme('datatables');
             $crud->set_table('users_groups');
             $crud->display_as('user_id', "Nom d'usuari");
             $crud->display_as('group_id', 'Rol');
@@ -540,5 +539,54 @@ class Index_controller extends CI_Controller
     }
 
     //-------------------------------------------------------------------------------
+    
+    public function practicaVideo(){
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        
+        $this->load->view('templates/header_profe', $data);
+        $this->load->view('pages/practicaVideo', $data);
+        $this->load->view('templates/footer', $data);
+    }
+
+        //---------------------------------------------------------------------
+        public function groceryPractiques()
+        {
+            $crud = new grocery_CRUD();
+    
+            $crud->set_subject('practiques');
+            $crud->set_theme('datatables');
+            $crud->set_table('practiques');
+    
+            $data['title'] = 'Noticies';
+            $data['autor'] = $this->config->item("copy");
+    
+            $crud->columns('titul', 'descripcio', 'explicacio');
+            $crud->fields('titul', 'descripcio', 'explicacio');
+    
+            $crud->unset_add();
+    
+    
+    
+            $output = $crud->render();
+    
+            $this->_example_outputpractiques($output);
+        }
+    
+        function _example_outputpractiques($output = null)
+        {
+            $data['title'] = 'Noticies';
+            $data['autor'] = $this->config->item("copy");
+            $data['user'] =  $this->ion_auth->user()->row();
+            $data["grocery"] = true;
+    
+    
+            $this->load->view('templates/header_profe', $data);
+            $this->load->view('pages/administrarPractiques', (array)$output);
+            $this->load->view('templates/footer', $data);
+        }
+    
+    
+        //-------------------------------------------------------------------------------
 
 }

@@ -73,6 +73,7 @@ $route['canviarpassword'] = 'index_controller/canviarpassword';
 $route['crearpractica'] = 'index_controller/crearpractica';
 
 $route['perfilusuari'] = 'index_controller/perfilusuari';
+$route['practicaVideo'] = 'index_controller/practicaVideo';
 
 $route['adminUsuaris'] = "index_controller/grocery"; 
 $route['adminUsuaris/(:any)'] = "index_controller/grocery/$1"; 
@@ -86,4 +87,15 @@ $route['admingroceryusuaris'] = "index_controller/groceryusuaris";
 $route['admingroceryusuaris/(:any)'] = "index_controller/groceryusuaris/$1"; 
 $route['admingroceryusuaris/(:any)/(:any)'] = "index_controller/groceryusuaris/$1/$2"; 
 
+$route['administrarPractiques'] = "index_controller/groceryPractiques"; 
+$route['administrarPractiques/(:any)'] = "index_controller/groceryPractiques/$1"; 
+$route['administrarPractiques/(:any)/(:any)'] = "index_controller/groceryPractiques/$1/$2"; 
+
 $route['tree/category'] = 'tree/treecat_controller/index'; 
+
+$route['upload'] = 'Upload/index'; 
+$route['upload/do_upload'] = 'Upload/do_upload'; 
+$route['upload/do_upload'] = 'Upload/crearInfografia';
+$route['practicaVideo'] = 'Upload/crearVideorecurs';
+
+
