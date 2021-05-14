@@ -26,33 +26,32 @@
 <br /><br />
 
 <input type="submit" value="upload" />-->
-<form class="user" action="<?php echo base_url('crearInfografia') ?>" method="post">
+    <form class="user" action="<?php echo base_url('upload/do_upload') ?>" method="post" enctype="multipart/form-data">
 
-    <div class="form-group" style="width: 50%; margin-left: 25%">
-        <p>Titol:</p>
-        <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
-    </div>
-    <div class="form-group" style="width: 50%; margin-left: 25%">
-        <p>Descripció Curata:</p>
-        <textarea class="form-control" id="descripciocurtaInfografia" name="descripciocurtaInfografia"></textarea>
-    </div>
-    <div class="form-group" style="width: 50%; margin-left: 25%">
+        <div class="form-group" style="width: 50%; margin-left: 25%">
+            <p>Titol:</p>
+            <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
+        </div>
+        <div class="form-group" style="width: 50%; margin-left: 25%">
+            <p>Descripció Curata:</p>
+            <textarea class="form-control" id="descripciocurtaInfografia" name="descripciocurtaInfografia"></textarea>
+        </div>
+        <div class="form-group" style="width: 50%; margin-left: 25%">
             <p>Descripció Llarga:</p>
             <textarea id="descripciollargaInfografia" name="descripciollargaInfografia" class="form-control"></textarea>
         </div>
-        <!------------------------------------------------------------------------------------->
 
         <script>
-    tinymce.init({
-      selector: 'descripciollargaInfografia',
-      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-   });
-  </script>
-  <!--
+            tinymce.init({
+                selector: 'descripciollargaInfografia',
+                plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+            });
+        </script>
+        <!--
     <div class="form-group" style="width: 50%; margin-left: 25%">
         <p>Categoria:</p>
         <input type="text" class="form-control" id="EmailUsuari" name="EmailUsuari">
@@ -62,18 +61,15 @@
         <input type="checkbox" id="tag" name="tag" value="Bike"><label for="tag">Mates</label><br>
     </div>-->
 
+        <input type="file" name="userfile" id="userfile" size="20" style="width: 50%; margin-left: 25%" />
 
-    <!--<?php //echo form_open_multipart('upload/do_upload'); ?>
+        <br /><br />
 
-    <input type="file" name="userfile" size="20" style="width: 50%; margin-left: 25%" />
+        <!--<input type="submit" value="upload" style="margin-left: 25%" />-->
 
-    <br /><br />
+        <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 
-    <input type="submit" value="upload" style="margin-left: 25%" />-->
-
-    <button type="submit" class="btn btn-primary btn-lg" style="margin-left: 40%;">Crear</button>
-
-</form>
+    </form>
 </body>
 
 </html>

@@ -13,8 +13,8 @@
 
 function infografia(){
     if(document.getElementById('valueselect').value == 1){
-        //document.getElementById('mostrarfeina').innerHTML = '<input type="file"/>'
-        document.getElementById('mostrarfeina').innerHTML = '<?php echo form_open_multipart('upload/do_upload'); ?><input type="file" name="userfile" size="20" style="width: 50%; margin-left: 25%" /><br /><br /><input type="submit" value="upload" style="margin-left: 25%" /></form>'
+        document.getElementById('mostrarfeina').innerHTML = '<input type="file"/>'
+        //document.getElementById('mostrarfeina').innerHTML = '<?php echo form_open_multipart('upload/do_upload'); ?><input type="file" name="userfile" size="20" style="width: 50%; margin-left: 25%" /><br /><br /><input type="submit" value="upload" style="margin-left: 25%" /></form>'
     }else if (document.getElementById('valueselect').value == 2){
         document.getElementById('mostrarfeina').innerHTML =' <div><input type="text" id="fname" name="fname" style="width: 80%;" autofocus="true" />  <a>Link del Video</a>'
     }else if (document.getElementById('valueselect').value == 3){
@@ -44,7 +44,7 @@ function infografia(){
                             <a href="<?php echo base_url('upload_form') ?>">Fichers</a></br>
                             <a href="<?php echo base_url('upload_form') ?>">Pissara</a></br>
 
-                            <form class="user" action="<?php echo base_url('perfilusuari') ?>" method="post">
+                           <!-- <form class="user" action="<?php echo base_url('perfilusuari') ?>" method="post">
                                 <div class="form-group">
                                     <p>Titol:</p>
                                     <input type="email" class="form-control" id="EmailUsuari" name="EmailUsuari">
@@ -67,7 +67,7 @@ function infografia(){
 
                                 <div id="mostrarfeina" style="border: 1px solid black; margin-top: 10%;"></div>
 
-                            </form>
+                            </form> -->
                             <hr>
                         </div>
                     </div>

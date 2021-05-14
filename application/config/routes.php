@@ -95,7 +95,7 @@ $route['tree/category'] = 'tree/treecat_controller/index';
 
 $route['upload'] = 'Upload/index'; 
 $route['upload/do_upload'] = 'Upload/do_upload'; 
-$route['upload/do_upload'] = 'Upload/crearInfografia';
+//$route['upload/do_upload'] = 'Upload/crearInfografia';
 $route['practicaVideo'] = 'Upload/crearVideorecurs';
 
 

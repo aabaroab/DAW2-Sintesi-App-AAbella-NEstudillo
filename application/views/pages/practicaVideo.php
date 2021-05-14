@@ -18,7 +18,7 @@
 
 <body>
 
-    <form  action="<?php echo base_url('practicaVideo') ?>" method="post" style="width: 50%; margin-left: 25%">
+    <form action="<?php echo base_url('practicaVideo') ?>" method="post" style="width: 50%; margin-left: 25%">
         <div class="form-group">
             <p>Titol:</p>
             <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
@@ -34,31 +34,31 @@
         <!------------------------------------------------------------------------------------->
 
         <script>
-    tinymce.init({
-      selector: 'descripciollargaInfografia',
-      plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-      toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-   });
-  </script>
+            tinymce.init({
+                selector: 'descripciollargaInfografia',
+                plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+            });
+        </script>
 
         <!------------------------------------------------------------------------------------->
 
-      <!--  <div class="form-group">
+        <div class="form-group">
             <p>Link video:</p>
             <input type="text" class="form-control" id="linckVideo" name="linckVideo">
         </div>
 
         <div class="form-group">
             <p>Categoria:</p>
-            <input type="email" class="form-control" id="EmailUsuari" name="EmailUsuari">
+            <input type="text" class="form-control" id="linkVideo" name="linkVideo">
         </div>
         <div class="form-group">
             <p>Tags:</p>
             <input type="checkbox" id="tag" name="tag" value="Bike"><label for="tag">Mates</label><br>
-        </div>-->
+        </div>
 
         <!--<div>
             <input type="text" id="fname" name="fname" style="width: 30%; margin-left: 28%;" autofocus="true" />

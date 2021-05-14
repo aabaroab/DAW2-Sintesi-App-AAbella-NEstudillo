@@ -22,7 +22,7 @@ class Upload extends CI_Controller
         public function index()
         {
                 $this->load->library('ion_auth');
-                $data['autor'] = $this->config->item("copy");
+                //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
                 $this->load->view('templates/header_profe', $data);
@@ -34,49 +34,50 @@ class Upload extends CI_Controller
         {
                 $this->load->library('form_validation');
                 $this->load->library('ion_auth');
-                //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
                 $config['upload_path']          = './uploads/';
                 $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 10000;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
+                // $config['max_size']             = 10000;
+                // $config['max_width']            = 10240;
+                // $config['max_height']           = 7680;
+
+                
 
                 $this->load->library('upload', $config);
 
-        
+                $this->upload->initialize($config);
+
+                $this->index_model->insert_practiquesImatge();
 
                 if (!$this->upload->do_upload('userfile')) {
                         $error = array('error' => $this->upload->display_errors());
+                        $this->load->view('templates/header_profe', $data);
                         $this->load->view('pages/upload_form', $error);
+                        $this->load->view('templates/footer', $data);
                 } else {
+                        //$this->index_model->insert_practiquesImatge();
                         $data = array('upload_data' => $this->upload->data());
-
+                        //$this->db->insert('practiques', $data);
                         $this->load->view('templates/header_profe', $data);
                         $this->load->view('pages/upload_success', $data);
                         $this->load->view('templates/footer', $data);
                 }
         }
 
-        public function crearInfografia(){
+        /*public function crearInfografia(){
 
                 $this->load->library('form_validation');
                 $this->load->library('ion_auth');
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
-                $titul = $this->input->post('titolInfografia');
-                $descripcio = $this->input->post('descripciocurtaInfografia');
-                $explicacio = $this->input->post('descripciollargaInfografia');
-                //$group = array('4');
-
-                $this->ion_auth->register($titul, $descripcio, $explicacio);
+                $this->index_model->insert_practiquesImatge();
 
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/upload_form', $data);
                 $this->load->view('templates/footer', $data);
-        }
+        }*/
 
         public function crearVideorecurs(){
 
@@ -85,15 +86,8 @@ class Upload extends CI_Controller
                 $this->load->library('ion_auth');
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
-
-                //$titul = $this->input->post('titolInfografia');
-                //$descripcio = $this->input->post('descripciocurtaInfografia');
-                //$explicacio = $this->input->post('descripciollargaInfografia');
-                //$group = array('4');
-
-                //$this->ion_auth->register($titul, $descripcio, $explicacio);
                 
-                $this->index_model->insert_practiques();
+                $this->index_model->insert_practiquesVideo();
                 
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/practicaVideo', $data);

@@ -21,28 +21,45 @@ class Index_model extends CI_Model
         return $query->row_array();
     }
 
-    public function get_fills ($catid)
+    public function get_fills($catid)
     {
         $data = array(
             'pare' => $catid
         );
 
         $query = $this->db->get_where('treecat', $data);
-        
+
         return $query->result_array();
     }
 
-    public function insert_practiques(){
+    public function insert_practiquesVideo()
+    {
         $this->load->helper('url');
 
+        $tipus_recurs = 'video';
         $data = array(
             'titul' => $this->input->post('titolInfografia'),
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
-            'explicacio' => $this->input->post('descripciollargaInfografia')
+            'explicacio' => $this->input->post('descripciollargaInfografia'),
+            'linkVideo' => $this->input->post('linckVideo'),
+            'tipus_recurs' => $tipus_recurs,
         );
 
         return $this->db->insert('practiques', $data);
     }
 
-}
+    public function insert_practiquesImatge()
+    {
+        $this->load->helper('url');
 
+        $tipus_recurs = 'imatge';
+        $data = array(
+            'titul' => $this->input->post('titolInfografia'),
+            'descripcio' => $this->input->post('descripciocurtaInfografia'),
+            'explicacio' => $this->input->post('descripciollargaInfografia'),
+            'tipus_recurs' => $tipus_recurs,
+        );
+
+        return $this->db->insert('practiques', $data);
+    }
+}
