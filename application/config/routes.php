@@ -71,25 +71,30 @@ $route['crearusuariadmin'] = 'index_controller/crearusuariadmin';
 $route['mostrarcanviarpassword'] = 'index_controller/mostrarcanviarpassword';
 $route['canviarpassword'] = 'index_controller/canviarpassword';
 $route['crearpractica'] = 'index_controller/crearpractica';
+$route['crearTag'] = 'index_controller/crearTag';
 
 $route['perfilusuari'] = 'index_controller/perfilusuari';
 $route['practicaVideo'] = 'index_controller/practicaVideo';
 
-$route['adminUsuaris'] = "index_controller/grocery"; 
-$route['adminUsuaris/(:any)'] = "index_controller/grocery/$1"; 
-$route['adminUsuaris/(:any)/(:any)'] = "index_controller/grocery/$1/$2"; 
+$route['adminUsuaris'] = "grocery_controller/grocery"; 
+$route['adminUsuaris/(:any)'] = "grocery_controller/grocery/$1"; 
+$route['adminUsuaris/(:any)/(:any)'] = "grocery_controller/grocery/$1/$2"; 
 
-$route['administraralumnes'] = "index_controller/groceryalumnes"; 
-$route['administraralumnes/(:any)'] = "index_controller/groceryalumnes/$1"; 
-$route['administraralumnes/(:any)/(:any)'] = "index_controller/groceryalumnes/$1/$2"; 
+$route['administraralumnes'] = "grocery_controller/groceryalumnes"; 
+$route['administraralumnes/(:any)'] = "grocery_controller/groceryalumnes/$1"; 
+$route['administraralumnes/(:any)/(:any)'] = "grocery_controller/groceryalumnes/$1/$2"; 
 
-$route['admingroceryusuaris'] = "index_controller/groceryusuaris"; 
-$route['admingroceryusuaris/(:any)'] = "index_controller/groceryusuaris/$1"; 
-$route['admingroceryusuaris/(:any)/(:any)'] = "index_controller/groceryusuaris/$1/$2"; 
+$route['admingroceryusuaris'] = "grocery_controller/groceryusuaris"; 
+$route['admingroceryusuaris/(:any)'] = "grocery_controller/groceryusuaris/$1"; 
+$route['admingroceryusuaris/(:any)/(:any)'] = "grocery_controller/groceryusuaris/$1/$2"; 
 
-$route['administrarPractiques'] = "index_controller/groceryPractiques"; 
-$route['administrarPractiques/(:any)'] = "index_controller/groceryPractiques/$1"; 
-$route['administrarPractiques/(:any)/(:any)'] = "index_controller/groceryPractiques/$1/$2"; 
+$route['administrarPractiques'] = "grocery_controller/groceryPractiques"; 
+$route['administrarPractiques/(:any)'] = "grocery_controller/groceryPractiques/$1"; 
+$route['administrarPractiques/(:any)/(:any)'] = "grocery_controller/groceryPractiques/$1/$2"; 
+
+$route['adminTags'] = "grocery_controller/groceryTags"; 
+$route['adminTags/(:any)'] = "grocery_controller/groceryTags/$1"; 
+$route['adminTags/(:any)/(:any)'] = "grocery_controller/groceryTags/$1/$2";
 
 $route['tree/category'] = 'tree/treecat_controller/index'; 
 

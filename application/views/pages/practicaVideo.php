@@ -60,6 +60,15 @@
             <input type="checkbox" id="tag" name="tag" value="Bike"><label for="tag">Mates</label><br>
         </div>
 
+        <?php $query = $this->db->get('tags');
+
+        foreach ($query->result() as $row) { ?>
+            <input type="checkbox" id="tag" name="tag" value="Bike"> <label for="tag"> <?php echo $row->title; ?></label><br>
+        <?php } ?>
+
+
+
+
         <!--<div>
             <input type="text" id="fname" name="fname" style="width: 30%; margin-left: 28%;" autofocus="true" />
             <button id="botoCarrega">Cargar</button>

@@ -42,13 +42,17 @@ class Upload extends CI_Controller
                 // $config['max_width']            = 10240;
                 // $config['max_height']           = 7680;
 
-                
+
 
                 $this->load->library('upload', $config);
 
                 $this->upload->initialize($config);
 
-                $this->index_model->insert_practiquesImatge();
+                /*$data['ficher'] = array(
+                        'nom_img' => $data['upload_data']['file_name'],
+                );*/
+
+                //$this->db->insert('practiques', $data['ficher']);
 
                 if (!$this->upload->do_upload('userfile')) {
                         $error = array('error' => $this->upload->display_errors());
@@ -56,42 +60,29 @@ class Upload extends CI_Controller
                         $this->load->view('pages/upload_form', $error);
                         $this->load->view('templates/footer', $data);
                 } else {
-                        //$this->index_model->insert_practiquesImatge();
-                        $data = array('upload_data' => $this->upload->data());
-                        //$this->db->insert('practiques', $data);
+                        $this->index_model->insert_practiquesImatge();
+                        //$data = array('upload_data' => $this->upload->data());
+                        //die($data['upload_data']['file_name']);
                         $this->load->view('templates/header_profe', $data);
                         $this->load->view('pages/upload_success', $data);
                         $this->load->view('templates/footer', $data);
                 }
         }
 
-        /*public function crearInfografia(){
-
-                $this->load->library('form_validation');
-                $this->load->library('ion_auth');
-                //$data['autor'] = $this->config->item("copy");
-                $data['user'] =  $this->ion_auth->user()->row();
-
-                $this->index_model->insert_practiquesImatge();
-
-                $this->load->view('templates/header_profe', $data);
-                $this->load->view('pages/upload_form', $data);
-                $this->load->view('templates/footer', $data);
-        }*/
-
-        public function crearVideorecurs(){
+        public function crearVideorecurs()
+        {
 
                 $this->load->model('index_model');
                 $this->load->library('form_validation');
                 $this->load->library('ion_auth');
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
-                
+
                 $this->index_model->insert_practiquesVideo();
-                
+
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/practicaVideo', $data);
                 $this->load->view('templates/footer', $data);
-                
         }
+
 }

@@ -62,4 +62,18 @@ class Index_model extends CI_Model
 
         return $this->db->insert('practiques', $data);
     }
+
+    public function insert_tag()
+    {
+        $this->load->helper('url');
+        $data = array(
+            'nom' => $this->input->post('nomtag'),
+        );
+        return $this->db->insert('tags', $data);
+    }
+
+    public function mostrar_tag()
+    {
+        $query = $this->db->get('tags');
+    }
 }

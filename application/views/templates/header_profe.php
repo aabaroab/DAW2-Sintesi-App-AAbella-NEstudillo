@@ -86,7 +86,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        <h6 class="collapse-header">Login Screens:</h6> 
+                        <a class="collapse-item" href="<?php echo base_url('perfilusuari'); ?>">Perfil</a>
                         <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
                         <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
                         <a class="collapse-item" href="<?php echo base_url('canviarpassword'); ?>">Forgot Password</a>
@@ -170,7 +171,7 @@
                                 <img class="img-profile rounded-circle" src="assets/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                           <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="<?php echo base_url('modificarUsuari'); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                                 </a>
@@ -184,7 +185,7 @@
                                 <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" href="<?php echo base_url('logout'); ?>"></i> Logout
                                 </a>
-                            </div>
+                            </div> -->
                         </li>
 
                     </ul>

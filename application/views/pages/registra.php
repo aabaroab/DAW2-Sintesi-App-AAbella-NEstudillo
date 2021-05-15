@@ -56,7 +56,7 @@
                             <a class="small" href="<?php echo base_url('login'); ?>">Login</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="<?php echo base_url('index'); ?>">Home</a>
+                            <a class="small" href="<?php echo base_url('videos'); ?>">Home</a>
                         </div>
                     </div>
                 </div>
