@@ -42,6 +42,8 @@ class Index_model extends CI_Model
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
             'explicacio' => $this->input->post('descripciollargaInfografia'),
             'linkVideo' => $this->input->post('linckVideo'),
+            'categoria' => $this->input->post('categoriaPractica'),
+            'tags' => $this->input->post('tag'),
             'tipus_recurs' => $tipus_recurs,
         );
 
@@ -57,6 +59,7 @@ class Index_model extends CI_Model
             'titul' => $this->input->post('titolInfografia'),
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
             'explicacio' => $this->input->post('descripciollargaInfografia'),
+            'categoria' => $this->input->post('categoriaPractica'),
             'tipus_recurs' => $tipus_recurs,
         );
 

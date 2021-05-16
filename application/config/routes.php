@@ -96,6 +96,10 @@ $route['adminTags'] = "grocery_controller/groceryTags";
 $route['adminTags/(:any)'] = "grocery_controller/groceryTags/$1"; 
 $route['adminTags/(:any)/(:any)'] = "grocery_controller/groceryTags/$1/$2";
 
+$route['administratCursos'] = "grocery_controller/groceryCursos"; 
+$route['administratCursos/(:any)'] = "grocery_controller/groceryCursos/$1"; 
+$route['administratCursos/(:any)/(:any)'] = "grocery_controller/groceryCursos/$1/$2";
+
 $route['tree/category'] = 'tree/treecat_controller/index'; 
 
 $route['upload'] = 'Upload/index'; 

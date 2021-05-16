@@ -17,6 +17,7 @@ class Upload extends CI_Controller
                 $this->load->helper('url');
 
                 $this->load->helper(array('form', 'url'));
+                $data['user'] =  $this->ion_auth->user()->row();
         }
 
         public function index()
@@ -32,6 +33,7 @@ class Upload extends CI_Controller
 
         public function do_upload()
         {
+                $this->load->model('index_model');
                 $this->load->library('form_validation');
                 $this->load->library('ion_auth');
                 $data['user'] =  $this->ion_auth->user()->row();
@@ -61,10 +63,10 @@ class Upload extends CI_Controller
                         $this->load->view('templates/footer', $data);
                 } else {
                         $this->index_model->insert_practiquesImatge();
-                        //$data = array('upload_data' => $this->upload->data());
+                        $data1 = array('upload_data' => $this->upload->data());
                         //die($data['upload_data']['file_name']);
                         $this->load->view('templates/header_profe', $data);
-                        $this->load->view('pages/upload_success', $data);
+                        $this->load->view('pages/upload_success', $data1);
                         $this->load->view('templates/footer', $data);
                 }
         }

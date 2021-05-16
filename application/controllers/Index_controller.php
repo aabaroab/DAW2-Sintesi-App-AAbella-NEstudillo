@@ -38,7 +38,7 @@ class Index_controller extends CI_Controller
         $data['user'] =  $this->ion_auth->user()->row();
 
         if ($this->ion_auth->logged_in()) {
-            $groupadmin = 1;
+            $groupadmin = 'admin';
             if ($this->ion_auth->in_group($groupadmin)) {
                 $this->load->view('templates/header_privat', $data);
                 $this->load->view('pages/indexprivat', $data);
@@ -60,9 +60,14 @@ class Index_controller extends CI_Controller
         $data['user'] =  $this->ion_auth->user()->row();
 
         if ($this->ion_auth->logged_in()) {
-            $this->load->view('templates/header_profe', $data);
-            $this->load->view('pages/indexprofe', $data);
-            $this->load->view('templates/footer', $data);
+            $grouprofe = 'profesor';
+            if ($this->ion_auth->in_group($grouprofe)) {
+                $this->load->view('templates/header_profe', $data);
+                $this->load->view('pages/indexprofe', $data);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
         } else {
             $this->load->view('pages/login', $data);
         }
@@ -77,7 +82,7 @@ class Index_controller extends CI_Controller
         $data['user'] =  $this->ion_auth->user()->row();
 
         if ($this->ion_auth->logged_in()) {
-            $groupalumne = 3;
+            $groupalumne = 'alumne';
             if ($this->ion_auth->in_group($groupalumne)) {
                 $this->load->view('templates/header_alumne', $data);
                 $this->load->view('pages/indexalumne', $data);
@@ -100,25 +105,35 @@ class Index_controller extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('ion_auth');
 
+
+        $this->form_validation->set_rules('exampleInputEmail', 'exampleInputEmail', 'required');
+        $this->form_validation->set_rules('exampleInputPassword', 'exampleInputPassword', 'required');
+        $this->form_validation->set_rules('customCheck', 'customCheck', 'required');
+
         $identity = $this->input->post('exampleInputEmail');
         $password = $this->input->post('exampleInputPassword');
         $verify = $this->ion_auth->login($identity, $password);
 
-        if ($verify == true) {
-            $groupadmin = 'admin';
-            $groupprofe = 'profesor';
-            $groupalumne = 'alumne';
-            if ($this->ion_auth->in_group($groupadmin)) {
-                redirect(base_url('indexprivat'));
-            } else if ($this->ion_auth->in_group($groupprofe)) {
-                redirect(base_url('indexprofe'));
-            } else if ($this->ion_auth->in_group($groupalumne)) {
-                redirect(base_url('indexalumne'));
-            }
-        } else {
-            //$this->load->view('templates/header',$data);
+
+        if ($this->form_validation->run() === FALSE) {
             $this->load->view('pages/login', $data);
-            //$this->load->view('templates/footer',$data);
+        } else {
+            if ($verify == true) {
+                $groupadmin = 'admin';
+                $groupprofe = 'profesor';
+                $groupalumne = 'alumne';
+                if ($this->ion_auth->in_group($groupadmin)) {
+                    redirect(base_url('videos'));
+                } else if ($this->ion_auth->in_group($groupprofe)) {
+                    redirect(base_url('videos'));
+                } else if ($this->ion_auth->in_group($groupalumne)) {
+                    redirect(base_url('videos'));
+                }
+            } else {
+                //$this->load->view('templates/header',$data);
+                $this->load->view('pages/login', $data);
+                //$this->load->view('templates/footer',$data);
+            }
         }
     }
     //---------------------------------------------------------------------
@@ -155,23 +170,32 @@ class Index_controller extends CI_Controller
         $data['autor'] = $this->config->item("copy");
         $data['user'] =  $this->ion_auth->user()->row();
 
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
 
-        $username = $this->input->post('UsernameUsuari');
-        $password = $this->input->post('PassUsuari');
-        $email = $this->input->post('EmailUsuari');
-        $additional_data = array(
-            'first_name' => $this->input->post('NomUsuari'),
-            'last_name' => $this->input->post('CognomsUsuari'),
-            'phone' => $this->input->post('TelefonUsuari'),
-        );
-        $group = array($this->input->post('GrupUsuari'));
-        //$group = array('2');
+                $username = $this->input->post('UsernameUsuari');
+                $password = $this->input->post('PassUsuari');
+                $email = $this->input->post('EmailUsuari');
+                $additional_data = array(
+                    'first_name' => $this->input->post('NomUsuari'),
+                    'last_name' => $this->input->post('CognomsUsuari'),
+                    'phone' => $this->input->post('TelefonUsuari'),
+                );
+                $group = array($this->input->post('GrupUsuari'));
+                //$group = array('2');
 
-        $this->ion_auth->register($username, $password, $email, $additional_data, $group);
+                $this->ion_auth->register($username, $password, $email, $additional_data, $group);
 
-        $this->load->view('templates/header_privat', $data);
-        $this->load->view('pages/crearusuariadmin', $data);
-        $this->load->view('templates/footer', $data);
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/crearusuariadmin', $data);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     //---------------------------------------------------------------------
@@ -262,8 +286,6 @@ class Index_controller extends CI_Controller
                 'last_name' => $this->input->post('CognomsUsuari'),
                 'phone' => $this->input->post('TelefonUsuari'),
             );
-            //redirect(base_url('perfilusuari'));
-
 
             $this->ion_auth->update($id, $data1);
 
@@ -383,10 +405,6 @@ class Index_controller extends CI_Controller
                 $this->load->view('pages/canviarpassword', $data);
                 $this->load->view('templates/footer', $data);
             }
-        } else {
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/canviarpassword', $data);
-            $this->load->view('templates/footer', $data);
         }
     }
 
@@ -458,5 +476,10 @@ class Index_controller extends CI_Controller
                 $this->load->view('pages/login', $data);
             }
         }
+    }
+
+
+    public function crearCurs(){
+        
     }
 }

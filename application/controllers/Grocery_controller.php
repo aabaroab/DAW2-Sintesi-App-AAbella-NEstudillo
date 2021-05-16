@@ -48,10 +48,18 @@ class Grocery_controller extends CI_Controller
         $data['user'] =  $this->ion_auth->user()->row();
         $data["grocery"] = true;
 
-
-        $this->load->view('templates/header_privat', $data);
-        $this->load->view('pages/adminUsuaris', (array)$output);
-        $this->load->view('templates/footer', $data);
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/adminUsuaris', (array)$output);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        }else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
 
@@ -88,10 +96,18 @@ class Grocery_controller extends CI_Controller
         $data['autor'] = $this->config->item("copy");
         $data['user'] =  $this->ion_auth->user()->row();
 
-
-        $this->load->view('templates/header_profe', $data);
-        $this->load->view('pages/administraralumnes', (array)$output);
-        $this->load->view('templates/footer', $data);
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_profe', $data);
+                $this->load->view('pages/administraralumnes', (array)$output);
+                $this->load->view('templates/footer', $data);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        }else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
 
@@ -139,104 +155,164 @@ class Grocery_controller extends CI_Controller
                 $this->load->view('templates/header_privat', $data);
                 $this->load->view('pages/admingroceryusuaris', (array)$output);
                 $this->load->view('templates/footer', $data);
+            }else {
+                $this->load->view('pages/login', $data);
             }
+        }else {
+            $this->load->view('pages/login', $data);
         }
     }
 
 
 
-        //---------------------------------------------------------------------
-        public function groceryPractiques()
-        {
-            $crud = new grocery_CRUD();
-    
-            $crud->set_subject('practiques');
-            $crud->set_theme('datatables');
-            $crud->set_table('practiques');
-    
-            $data['title'] = 'Noticies';
-            $data['autor'] = $this->config->item("copy");
-    
-            $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
-            $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
-    
-            $crud->unset_add();
-    
-    
-    
-            $output = $crud->render();
-    
-            $this->_example_outputpractiques($output);
-        }
-    
-        function _example_outputpractiques($output = null)
-        {
-            $data['title'] = 'Gestionar Practiques';
-            $data['autor'] = $this->config->item("copy");
-            $data['user'] =  $this->ion_auth->user()->row();
-            $data["grocery"] = true;
-    
-    
-            if ($this->ion_auth->logged_in()) {
-                $groupadmin = 'admin';
-                $groupprofe = 'profesor';
-    
-                if ($this->ion_auth->in_group($groupadmin)) {
-                    $this->load->view('templates/header_privat', $data);
-                    $this->load->view('pages/administrarPractiques', (array)$output);
-                    $this->load->view('templates/footer', $data);
-                }else if ($this->ion_auth->in_group($groupprofe)){
-                    $this->load->view('templates/header_profe', $data);
-                    $this->load->view('pages/administrarPractiques', (array)$output);
-                    $this->load->view('templates/footer', $data);
-                }
-        }
-        }
-    
-        //-------------------------------------------------------------------------------
+    //---------------------------------------------------------------------
+    public function groceryPractiques()
+    {
+        $crud = new grocery_CRUD();
 
-        public function groceryTags()
-        {
-            $crud = new grocery_CRUD();
-    
-            $crud->set_subject('tags');
-            $crud->set_theme('datatables');
-            $crud->set_table('tags');
-    
-            $data['title'] = 'Noticies';
-            $data['autor'] = $this->config->item("copy");
-    
-            $crud->columns('nom');
-            $crud->fields('nom');
-    
-            $crud->unset_add();
-    
-    
-    
-            $output = $crud->render();
-    
-            $this->_example_outputtags($output);
-        }
-    
-        function _example_outputtags($output = null)
-        {
-            $data['title'] = 'Gestionar Practiques';
-            $data['autor'] = $this->config->item("copy");
-            $data['user'] =  $this->ion_auth->user()->row();
-            $data["grocery"] = true;
-    
-    
-            if ($this->ion_auth->logged_in()) {
-                $groupadmin = 'admin';
-    
-                if ($this->ion_auth->in_group($groupadmin)) {
-                    $this->load->view('templates/header_privat', $data);
-                    $this->load->view('pages/adminTags', (array)$output);
-                    $this->load->view('templates/footer', $data);
-                }
-        }
-        }
-    
-        //-------------------------------------------------------------------------------
+        $crud->set_subject('practiques');
+        $crud->set_theme('datatables');
+        $crud->set_table('practiques');
 
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+
+        $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+        $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+
+        $crud->unset_add();
+
+
+
+        $output = $crud->render();
+
+        $this->_example_outputpractiques($output);
+    }
+
+    function _example_outputpractiques($output = null)
+    {
+        $data['title'] = 'Gestionar Practiques';
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+
+
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/administrarPractiques', (array)$output);
+                $this->load->view('templates/footer', $data);
+            } else if ($this->ion_auth->in_group($groupprofe)) {
+                $this->load->view('templates/header_profe', $data);
+                $this->load->view('pages/administrarPractiques', (array)$output);
+                $this->load->view('templates/footer', $data);
+            }else {
+                $this->load->view('pages/login', $data);
+            }
+        }else {
+            $this->load->view('pages/login', $data);
+        }
+    }
+
+    //-------------------------------------------------------------------------------
+
+    public function groceryTags()
+    {
+        $crud = new grocery_CRUD();
+
+        $crud->set_subject('tags');
+        $crud->set_theme('datatables');
+        $crud->set_table('tags');
+
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+
+        $crud->columns('nom');
+        $crud->fields('nom');
+
+        $crud->unset_add();
+
+
+
+        $output = $crud->render();
+
+        $this->_example_outputtags($output);
+    }
+
+    function _example_outputtags($output = null)
+    {
+        $data['title'] = 'Gestionar Practiques';
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+
+
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/adminTags', (array)$output);
+                $this->load->view('templates/footer', $data);
+            }else {
+                $this->load->view('pages/login', $data);
+            }
+        }else {
+            $this->load->view('pages/login', $data);
+        }
+    }
+
+    //-------------------------------------------------------------------------------
+
+    public function groceryCursos()
+    {
+        $crud = new grocery_CRUD();
+
+        $crud->set_subject('treecat');
+        $crud->set_theme('datatables');
+        $crud->set_table('treecat');
+
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+
+        $crud->columns('id', 'nom', 'pare');
+        $crud->fields('id', 'nom', 'pare');
+        $crud->field_type('id', 'hidden');
+
+        $crud->unset_add();
+
+
+
+        $output = $crud->render();
+
+        $this->_example_outputcursos($output);
+    }
+
+    function _example_outputcursos($output = null)
+    {
+        $data['title'] = 'Gestionar Practiques';
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+
+
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/administratCursos', (array)$output);
+                $this->load->view('templates/footer', $data);
+            }else {
+                $this->load->view('pages/login', $data);
+            }
+        }else {
+            $this->load->view('pages/login', $data);
+        }
+    }
+
+    //-------------------------------------------------------------------------------
 }

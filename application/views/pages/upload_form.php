@@ -10,6 +10,11 @@
         tinymce.init({
             selector: '#descripciollargaInfografia'
         });
+
+        type="text/javascript">
+        tinymce.init({
+            selector: '#descripciocurtaInfografia'
+        });
     </script>
 </head>
 
@@ -17,30 +22,33 @@
 
     <?php echo $error;
     ?>
+    <form class="user" action="<?php echo base_url('upload/do_upload') ?>" method="post" enctype="multipart/form-data" style="width: 50%; margin-left: 25%">
 
-    <?php //echo form_open_multipart('upload/do_upload');
-    ?>
-
-    <!--<input type="file" name="userfile" size="20" />
-
-<br /><br />
-
-<input type="submit" value="upload" />-->
-    <form class="user" action="<?php echo base_url('upload/do_upload') ?>" method="post" enctype="multipart/form-data">
-
-        <div class="form-group" style="width: 50%; margin-left: 25%">
+        <div class="form-group">
             <p>Titol:</p>
             <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
         </div>
-        <div class="form-group" style="width: 50%; margin-left: 25%">
+        <div class="form-group">
             <p>Descripció Curata:</p>
             <textarea class="form-control" id="descripciocurtaInfografia" name="descripciocurtaInfografia"></textarea>
         </div>
-        <div class="form-group" style="width: 50%; margin-left: 25%">
+        <!------------------------------------------------------------------------------------------------------->
+        <script>
+            tinymce.init({
+                selector: 'descripciocurtaInfografia',
+                plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+            });
+        </script>
+        <!------------------------------------------------------------------------------------------------------->
+        <div class="form-group">
             <p>Descripció Llarga:</p>
             <textarea id="descripciollargaInfografia" name="descripciollargaInfografia" class="form-control"></textarea>
         </div>
-
+        <!------------------------------------------------------------------------------------------------------->
         <script>
             tinymce.init({
                 selector: 'descripciollargaInfografia',
@@ -51,22 +59,22 @@
                 tinycomments_author: 'Author name',
             });
         </script>
-        <!--
-    <div class="form-group" style="width: 50%; margin-left: 25%">
-        <p>Categoria:</p>
-        <input type="text" class="form-control" id="EmailUsuari" name="EmailUsuari">
-    </div>
-    <div class="form-group" style="width: 50%; margin-left: 25%">
-        <p>Tags:</p>
-        <input type="checkbox" id="tag" name="tag" value="Bike"><label for="tag">Mates</label><br>
-    </div>-->
+        <!------------------------------------------------------------------------------------------------------->
 
-        <input type="file" name="userfile" id="userfile" size="20" style="width: 50%; margin-left: 25%" />
+        <div class="form-group">
+            <p>Categoria:</p>
+            <input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">
+        </div>
+
+        <input type="file" name="userfile" id="userfile" size="20" />
 
         <br /><br />
 
-        <!--<input type="submit" value="upload" style="margin-left: 25%" />-->
+        <?php $query = $this->db->get('tags');
 
+        foreach ($query->result() as $row) { ?>
+            <input type="checkbox" id="tag" name="tag" value="Bike"> <label for="tag"> <?php echo $row->nom; ?></label><br>
+        <?php } ?>
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 
     </form>
