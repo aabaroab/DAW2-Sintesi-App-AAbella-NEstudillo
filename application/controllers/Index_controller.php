@@ -261,7 +261,7 @@ class Index_controller extends CI_Controller
 
         $this->ion_auth->logout();
 
-        redirect(base_url('index'));
+        redirect(base_url('videos'));
     }
 
     //--------------------------------------------------------------------------
@@ -480,6 +480,6 @@ class Index_controller extends CI_Controller
 
 
     public function crearCurs(){
-        
+
     }
 }
