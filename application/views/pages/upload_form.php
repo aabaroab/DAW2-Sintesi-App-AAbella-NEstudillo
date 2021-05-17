@@ -73,8 +73,9 @@
         <?php $query = $this->db->get('tags');
 
         foreach ($query->result() as $row) { ?>
-            <input type="checkbox" id="tag" name="tag" value="Bike"> <label for="tag"> <?php echo $row->nom; ?></label><br>
+            <input type="checkbox" id="tag" name="tag" value="<?php $row->nom; ?>"> <label for="tag"> <?php echo $row->nom; ?></label><br>
         <?php } ?>
+
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 
     </form>

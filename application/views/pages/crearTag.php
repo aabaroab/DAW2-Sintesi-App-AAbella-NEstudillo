@@ -12,6 +12,7 @@
 <body>
 
     <form action="<?php echo base_url('crearTag') ?>" method="post" style="width: 50%; margin-left: 25%">
+    
         <div class="form-group">
             <p>Nom Tag:</p>
             <input type="text" class="form-control" id="nomtag" name="nomtag">

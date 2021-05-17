@@ -34,8 +34,6 @@ class Grocery_controller extends CI_Controller
 
         $crud->unset_add();
 
-
-
         $output = $crud->render();
 
         $this->_example_output($output);
@@ -57,10 +55,11 @@ class Grocery_controller extends CI_Controller
             } else {
                 $this->load->view('pages/login', $data);
             }
-        }else {
+        } else {
             $this->load->view('pages/login', $data);
         }
     }
+
 
 
 
@@ -105,7 +104,7 @@ class Grocery_controller extends CI_Controller
             } else {
                 $this->load->view('pages/login', $data);
             }
-        }else {
+        } else {
             $this->load->view('pages/login', $data);
         }
     }
@@ -118,47 +117,43 @@ class Grocery_controller extends CI_Controller
     {
         $crud = new grocery_CRUD();
 
+        $crud->set_subject('Users goups');
+        $crud->set_theme('datatables');
+        $crud->set_table('users_groups');
+
+        $crud->display_as('user_id',"Nom d'usuari");
+        $crud->display_as('group_id','Rol');
+        $crud->set_relation('user_id','users','username');
+        $crud->field_type("user_id", 'readonly');
+        $crud->set_relation('group_id','groups','description');
+
+        $crud->unset_add();
+
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
 
-        if ($this->ion_auth->logged_in()) {
+        $output = $crud->render();
 
-            $crud->set_subject('users_groups');
-            $crud->set_theme('datatables');
-            $crud->set_table('users_groups');
-            $crud->display_as('user_id', "Nom d'usuari");
-            $crud->display_as('group_id', 'Rol');
-            $crud->set_relation('user_id', 'users', 'username');
-            $crud->field_type("user_id", 'readonly');
-            $crud->set_relation('group_id', 'groups', 'description');
-
-            $crud->unset_add();
-
-
-
-            $output = $crud->render();
-
-            $this->_example_outputusuaris($output);
-        }
+        $this->_example_output_grups($output);
     }
 
-    function _example_outputusuaris($output = null)
+    function _example_output_grups($output = null)
     {
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
         $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
 
         if ($this->ion_auth->logged_in()) {
             $groupadmin = 'admin';
-
             if ($this->ion_auth->in_group($groupadmin)) {
                 $this->load->view('templates/header_privat', $data);
-                $this->load->view('pages/admingroceryusuaris', (array)$output);
+                $this->load->view('pages/adminUsuaris', (array)$output);
                 $this->load->view('templates/footer', $data);
-            }else {
+            } else {
                 $this->load->view('pages/login', $data);
             }
-        }else {
+        } else {
             $this->load->view('pages/login', $data);
         }
     }
@@ -209,10 +204,10 @@ class Grocery_controller extends CI_Controller
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/administrarPractiques', (array)$output);
                 $this->load->view('templates/footer', $data);
-            }else {
+            } else {
                 $this->load->view('pages/login', $data);
             }
-        }else {
+        } else {
             $this->load->view('pages/login', $data);
         }
     }
@@ -232,9 +227,6 @@ class Grocery_controller extends CI_Controller
 
         $crud->columns('nom');
         $crud->fields('nom');
-
-        $crud->unset_add();
-
 
 
         $output = $crud->render();
@@ -257,10 +249,10 @@ class Grocery_controller extends CI_Controller
                 $this->load->view('templates/header_privat', $data);
                 $this->load->view('pages/adminTags', (array)$output);
                 $this->load->view('templates/footer', $data);
-            }else {
+            } else {
                 $this->load->view('pages/login', $data);
             }
-        }else {
+        } else {
             $this->load->view('pages/login', $data);
         }
     }
@@ -282,7 +274,6 @@ class Grocery_controller extends CI_Controller
         $crud->fields('id', 'nom', 'pare');
         $crud->field_type('id', 'hidden');
 
-        $crud->unset_add();
 
 
 
@@ -306,10 +297,10 @@ class Grocery_controller extends CI_Controller
                 $this->load->view('templates/header_privat', $data);
                 $this->load->view('pages/administratCursos', (array)$output);
                 $this->load->view('templates/footer', $data);
-            }else {
+            } else {
                 $this->load->view('pages/login', $data);
             }
-        }else {
+        } else {
             $this->load->view('pages/login', $data);
         }
     }

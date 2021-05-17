@@ -75,8 +75,8 @@ class Index_model extends CI_Model
         return $this->db->insert('tags', $data);
     }
 
-    public function mostrar_tag()
+    /* function mostrar_tag()
     {
         $query = $this->db->get('tags');
-    }
+    }*/
 }

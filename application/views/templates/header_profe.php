@@ -90,7 +90,7 @@
                         <a class="collapse-item" href="<?php echo base_url('perfilusuari'); ?>">Perfil</a>
                         <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
                         <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
-                        <a class="collapse-item" href="<?php echo base_url('canviarpassword'); ?>">Forgot Password</a>
+                        <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Forgot Password</a>
 
                     </div>
                 </div>

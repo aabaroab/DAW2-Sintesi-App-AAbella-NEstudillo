@@ -26,13 +26,6 @@
                                 <h1 class="h4 text-gray-900 mb-4">Crear Practica</h1>
                             </div>
 
-                            <!-- <a href="<?php echo base_url('upload') ?>">Infografia</a><br />
-                            <a href="<?php echo base_url('practicaVideo') ?>">Videorecurs</a><br />
-                            <a href="<?php echo base_url('upload_form') ?>">Fichers de Video</a></br>
-                            <a href="<?php echo base_url('upload_form') ?>">Pissara</a></br> -->
-
-
-
                             <table class="table table-striped text-center">
                                 <thead>
                                     <tr>

@@ -64,7 +64,7 @@
                     <a class="collapse-item"  href="<?php echo base_url('adminTags'); ?>">Gestionar Tags</a>
                     <a class="collapse-item"  href="<?php echo base_url('administratCursos'); ?>">Gestionar Cursos</a>
                     <a class="collapse-item" href="<?php echo base_url('crearusuariadmin'); ?>">Crear Usuaris</a>
-                    <a class="collapse-item" href="<?php echo base_url('crearTag'); ?>">Crear Tag</a>
+                   <!-- <a class="collapse-item" href="<?php echo base_url('crearTag'); ?>">Crear Tag</a> -->
                 </div>
             </div>
         </li>
@@ -90,7 +90,7 @@
                     <a class="collapse-item" href="<?php echo base_url('perfilusuari'); ?>">Perfil</a>
                     <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
                     <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
-                    <a class="collapse-item" href="<?php echo base_url('canviarpassword'); ?>">Forgot Password</a>
+                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Forgot Password</a>
 
                 </div>
             </div>

@@ -185,7 +185,7 @@ class Index_controller extends CI_Controller
                 $group = array($this->input->post('GrupUsuari'));
                 //$group = array('2');
 
-                $this->ion_auth->register($username, $password, $email, $additional_data, $group);
+                $this->ion_auth->register($username, $password, $email, $additional_data);
 
                 $this->load->view('templates/header_privat', $data);
                 $this->load->view('pages/crearusuariadmin', $data);
@@ -461,6 +461,8 @@ class Index_controller extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('ion_auth');
 
+        //$data['tag'] = $this->db->get('tags');
+
         $data['autor'] = $this->config->item("copy");
         $data['user'] =  $this->ion_auth->user()->row();
 
@@ -475,11 +477,9 @@ class Index_controller extends CI_Controller
             } else {
                 $this->load->view('pages/login', $data);
             }
+        } else {
+            $this->load->view('pages/login', $data);
         }
     }
 
-
-    public function crearCurs(){
-
-    }
 }

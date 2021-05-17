@@ -46,9 +46,9 @@
                             <div class="form-group">
                                 <input type="password" class="form-control form-control-user" id="PassUsuari" name="PassUsuari" placeholder="Password">
                             </div>
-                            <div class="form-group">
+                           <!-- <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="GrupUsuari" name="GrupUsuari" placeholder="Grup">
-                            </div>
+                            </div> -->
                             <button type="submit" class="btn btn-primary btn-lg" style="margin-left: 40%;">Crear</button>
                         </form>
                         <hr>
