@@ -66,7 +66,14 @@
             <input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">
         </div>
 
-        <input type="file" name="userfile" id="userfile" size="20" />
+        <div>
+            <p>Imatge:</p>
+            <input type="file" name="userfile" id="userfile" size="20" />
+        </div><br />
+        <div>
+            <p>Ficher Extra:</p>
+            <input type="file" name="userfileExtra" id="userfileExtra" size="20" />
+        </div>
 
         <br /><br />
 

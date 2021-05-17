@@ -36,12 +36,12 @@ class Index_model extends CI_Model
     {
         $this->load->helper('url');
 
-        $tipus_recurs = 'video';
+        $tipus_recurs = 'videorecurs';
         $data = array(
             'titul' => $this->input->post('titolInfografia'),
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
             'explicacio' => $this->input->post('descripciollargaInfografia'),
-            'linkVideo' => $this->input->post('linckVideo'),
+            'material' => $this->input->post('linckVideo'),
             'categoria' => $this->input->post('categoriaPractica'),
             'tags' => $this->input->post('tag'),
             'tipus_recurs' => $tipus_recurs,
@@ -59,6 +59,7 @@ class Index_model extends CI_Model
             'titul' => $this->input->post('titolInfografia'),
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
             'explicacio' => $this->input->post('descripciollargaInfografia'),
+            'material' => $this->input->post('userfile'),
             'categoria' => $this->input->post('categoriaPractica'),
             'tipus_recurs' => $tipus_recurs,
         );
@@ -75,8 +76,28 @@ class Index_model extends CI_Model
         return $this->db->insert('tags', $data);
     }
 
+
+    public function insert_practicaVideobd()
+    {
+        $this->load->helper('url');
+
+        $tipus_recurs = 'video';
+        $data = array(
+            'titul' => $this->input->post('titolInfografia'),
+            'descripcio' => $this->input->post('descripciocurtaInfografia'),
+            'explicacio' => $this->input->post('descripciollargaInfografia'),
+            'categoria' => $this->input->post('categoriaPractica'),
+            'tipus_recurs' => $tipus_recurs,
+        );
+
+        return $this->db->insert('practiques', $data);
+    }
+
+
     /* function mostrar_tag()
     {
         $query = $this->db->get('tags');
     }*/
+
+
 }

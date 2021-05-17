@@ -103,7 +103,9 @@ $route['administratCursos/(:any)/(:any)'] = "grocery_controller/groceryCursos/$1
 $route['tree/category'] = 'tree/treecat_controller/index'; 
 
 $route['upload'] = 'Upload/index'; 
+$route['uploadVideo'] = 'Upload/indexVideo'; 
 $route['upload/do_upload'] = 'Upload/do_upload'; 
+$route['uploadVideo/do_upload_video'] = 'Upload/do_upload_video'; 
 //$route['upload/do_upload'] = 'Upload/crearInfografia';
 $route['practicaVideo'] = 'Upload/crearVideorecurs';
 

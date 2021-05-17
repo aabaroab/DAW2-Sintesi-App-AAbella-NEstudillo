@@ -14,7 +14,7 @@
         <?php endforeach; ?>
     </ul>
 
-    <p><?php echo anchor('upload', 'Upload Another File!'); ?></p>
+    <p><?php echo anchor('crearpractica', 'Upload Another File!'); ?></p>
 
 </body>
 
