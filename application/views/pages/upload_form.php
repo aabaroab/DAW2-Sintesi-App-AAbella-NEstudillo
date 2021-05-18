@@ -74,11 +74,11 @@
 
         <div>
             <p>Imatge:</p>
-            <input type="file" name="userfile" id="userfile" size="20" />
+            <input type="file" name="userfile" id="userfile" size="20" multiple="multiple" />
         </div><br />
         <div>
             <p>Ficher Extra:</p>
-            <input type="file" name="userfileExtra" id="userfileExtra" size="20" />
+            <input type="file" name="userfileExtra" id="userfileExtra" size="20" multiple="multiple" />
         </div>
 
         <br /><br />
