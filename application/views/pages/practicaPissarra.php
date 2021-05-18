@@ -82,9 +82,9 @@
             <p class="btn btn-primary" type="button" onclick="cleanCanva()">Borrar tot</p>
             <p class="btn btn-primary" type="button" onclick="saveImage()">Guardar</p>
             <input type="hidden" name="imagenFinal" id="imagenFinal"/>            
-            <script src="../../assets/js/scriptPissarra.js"></script>
+            <script src="<?php echo base_url('/assets/js/scriptPissarra.js');?>"></script>
             <?php 
-            echo $_SERVER["DOCUMENT_ROOT"];
+            //echo $_SERVER["DOCUMENT_ROOT"];
             if (isset($_POST["imagenFinal"])) { 
             
                 echo '<img src="'.$_POST["imagenFinal"].'" border="1">';

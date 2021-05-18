@@ -43,7 +43,7 @@
                                         <th><a href="<?php echo base_url('uploadVideo') ?>">Fichers de Video</a></th>
                                     </tr>
                                     <tr>
-                                        <th><a href="<?php echo base_url('upload_form') ?>">Pissara</a></th>
+                                        <th><a href="<?php echo base_url('practicaPissarra') ?>">Pissara</a></th>
                                     </tr>
                                 </tbody>
                             </table>

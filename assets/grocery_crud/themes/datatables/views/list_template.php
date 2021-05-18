@@ -81,9 +81,9 @@
 	<style type="text/css">
 		<?php foreach($actions as $action_unique_id => $action){?>
 			<?php if(!empty($action->image_url)){ ?>
-				.<?php echo $action_unique_id; ?>{
+				<?php echo $action_unique_id; ?>{
 					background: url('<?php echo $action->image_url; ?>') !important;
-				}
+				
 			<?php }?>
 		<?php }?>
 	</style>
