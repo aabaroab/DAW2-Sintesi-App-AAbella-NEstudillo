@@ -164,7 +164,10 @@ class Grocery_controller extends CI_Controller
     public function groceryPractiques()
     {
         $crud = new grocery_CRUD();
+        $usr= $this->ion_auth->user()->row();
+        $data['user'] = $usr;
 
+        $crud->where('profesor =',$usr->username);
         $crud->set_subject('practiques');
         $crud->set_theme('datatables');
         $crud->set_table('practiques');
@@ -193,18 +196,62 @@ class Grocery_controller extends CI_Controller
 
 
         if ($this->ion_auth->logged_in()) {
-            $groupadmin = 'admin';
+
             $groupprofe = 'profesor';
 
-            if ($this->ion_auth->in_group($groupadmin)) {
-                $this->load->view('templates/header_privat', $data);
-                $this->load->view('pages/administrarPractiques', (array)$output);
-                $this->load->view('templates/footer', $data);
-            } else if ($this->ion_auth->in_group($groupprofe)) {
+            if ($this->ion_auth->in_group($groupprofe)) {
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/administrarPractiques', (array)$output);
                 $this->load->view('templates/footer', $data);
             } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
+    }
+
+    //-------------------------------------------------------------------------------
+
+    public function groceryPractiques2()
+    {
+        $crud = new grocery_CRUD();
+   
+        $crud->set_subject('practiques');
+        $crud->set_theme('datatables');
+        $crud->set_table('practiques');
+
+        $data['title'] = 'Noticies';
+        $data['autor'] = $this->config->item("copy");
+
+        $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
+        $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
+
+        $crud->unset_add();
+
+
+
+        $output = $crud->render();
+
+        $this->_example_outputpractiques2($output);
+    }
+
+    function _example_outputpractiques2($output = null)
+    {
+        $data['title'] = 'Gestionar Practiques';
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+
+
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/administrarPractiquesadmin', (array)$output);
+                $this->load->view('templates/footer', $data);
+            }  else {
                 $this->load->view('pages/login', $data);
             }
         } else {

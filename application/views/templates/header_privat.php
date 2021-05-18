@@ -60,7 +60,7 @@
                     <h6 class="collapse-header">Custom Components:</h6>
                     <a class="collapse-item" href="<?php echo base_url('adminUsuaris'); ?>">Gestionar Usuaris</a>
                     <a class="collapse-item" href="<?php echo base_url('admingroceryusuaris'); ?>">Gestionar Grups</a>
-                    <a class="collapse-item"  href="<?php echo base_url('administrarPractiques'); ?>">Gestionar Practiques</a>
+                    <a class="collapse-item"  href="<?php echo base_url('administrarPractiquesadmin'); ?>">Gestionar Practiques</a>
                     <a class="collapse-item"  href="<?php echo base_url('adminTags'); ?>">Gestionar Tags</a>
                     <a class="collapse-item"  href="<?php echo base_url('administratCursos'); ?>">Gestionar Cursos</a>
                     <a class="collapse-item" href="<?php echo base_url('crearusuariadmin'); ?>">Crear Usuaris</a>

@@ -92,6 +92,10 @@ $route['administrarPractiques'] = "grocery_controller/groceryPractiques";
 $route['administrarPractiques/(:any)'] = "grocery_controller/groceryPractiques/$1"; 
 $route['administrarPractiques/(:any)/(:any)'] = "grocery_controller/groceryPractiques/$1/$2"; 
 
+$route['administrarPractiquesadmin'] = "grocery_controller/groceryPractiques2"; 
+$route['administrarPractiquesadmin/(:any)'] = "grocery_controller/groceryPractiques2/$1"; 
+$route['administrarPractiquesadmin/(:any)/(:any)'] = "grocery_controller/groceryPractiques2/$1/$2"; 
+
 $route['adminTags'] = "grocery_controller/groceryTags"; 
 $route['adminTags/(:any)'] = "grocery_controller/groceryTags/$1"; 
 $route['adminTags/(:any)/(:any)'] = "grocery_controller/groceryTags/$1/$2";
