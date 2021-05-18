@@ -61,6 +61,7 @@ class Upload extends CI_Controller
 
                 $config['upload_path']          = './uploads/';
                 $config['allowed_types']        = 'gif|jpg|png';
+                $config['encrypt_name']        = true;
                 // $config['max_size']             = 10000;
                 // $config['max_width']            = 10240;
                 // $config['max_height']           = 7680;
