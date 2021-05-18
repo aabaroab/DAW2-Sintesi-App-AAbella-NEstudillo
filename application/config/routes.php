@@ -118,3 +118,4 @@ $route['uploadVideo/do_upload_video'] = 'Upload/do_upload_video';
 $route['practicaVideo'] = 'Upload/crearVideorecurs';
 
 
+//iusuueueuueueuu
