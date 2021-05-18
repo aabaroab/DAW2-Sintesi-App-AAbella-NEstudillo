@@ -20,7 +20,7 @@ class Index_model extends CI_Model
         $query = $this->db->get_where('news', array('slug' => $slug));
         return $query->row_array();
     }
-
+//-----------------------------------------------------------------
     public function get_fills($catid)
     {
         $data = array(
@@ -31,26 +31,28 @@ class Index_model extends CI_Model
 
         return $query->result_array();
     }
-
-    public function insert_practiquesVideo()
+//-----------------------------------------------------------------
+    public function insert_practiquesVideo($prop)
     {
         $this->load->helper('url');
 
         $tipus_recurs = 'videorecurs';
+        
         $data = array(
             'titul' => $this->input->post('titolInfografia'),
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
             'explicacio' => $this->input->post('descripciollargaInfografia'),
             'material' => $this->input->post('linckVideo'),
             'categoria' => $this->input->post('categoriaPractica'),
-            'tags' => $this->input->post('tag'),
+            'profesor' => $prop,
+            //'tags' => $this->input->post('tag['.$row->nom.']'),
             'tipus_recurs' => $tipus_recurs,
         );
 
         return $this->db->insert('practiques', $data);
     }
 
-    public function insert_practiquesImatge()
+    public function insert_practiquesImatge($prop)
     {
         $this->load->helper('url');
 
@@ -61,6 +63,7 @@ class Index_model extends CI_Model
             'explicacio' => $this->input->post('descripciollargaInfografia'),
             'material' => $this->input->post('userfile'),
             'categoria' => $this->input->post('categoriaPractica'),
+            'profesor' => $prop,
             'tipus_recurs' => $tipus_recurs,
         );
 
@@ -92,6 +95,8 @@ class Index_model extends CI_Model
 
         return $this->db->insert('practiques', $data);
     }
+
+
 
 
     /* function mostrar_tag()

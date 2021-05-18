@@ -252,6 +252,19 @@ class Index_controller extends CI_Controller
         }
         echo "</ol>";
     }
+//-----------------------------------------------------------
+    public function mostrar_tree2($categories)
+    {
+
+        foreach ($categories as $cat) {
+            echo "<option>" . $cat['nom'] . "</option>";
+
+            $fills = $this->index_model->get_fills($cat['id']);
+
+            if (count($fills) > 0)
+                $this->mostrar_tree2($fills);
+        }
+    }
     //--------------------------------------------------------------------------
 
     public function logout()

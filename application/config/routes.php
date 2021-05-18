@@ -101,6 +101,8 @@ $route['administratCursos/(:any)'] = "grocery_controller/groceryCursos/$1";
 $route['administratCursos/(:any)/(:any)'] = "grocery_controller/groceryCursos/$1/$2";
 
 $route['tree/category'] = 'tree/treecat_controller/index'; 
+//$route['tree/category'] = 'tree/index_controller/index'; 
+//$route['tree/category'] = 'tree/Upload/index'; 
 
 $route['upload'] = 'Upload/index'; 
 $route['uploadVideo'] = 'Upload/indexVideo'; 

@@ -26,9 +26,27 @@ class Upload extends CI_Controller
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
+                //$data['controller'] = $this;
+                //$data["cat"] = $this->treecat_model->get_fills(NULL);
+
+                //$this->load->view('tree/index', $data);
+
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/upload_form', array('error' => ' '));
                 $this->load->view('templates/footer', $data);
+        }
+
+        public function mostrar_tree2($categories)
+        {
+
+                foreach ($categories as $cat) {
+                        echo "<option>" . $cat['nom'] . "</option>";
+
+                        $fills = $this->index_model->get_fills($cat['id']);
+
+                        if (count($fills) > 0)
+                                $this->mostrar_tree2($fills);
+                }
         }
 
         public function do_upload()
@@ -36,7 +54,10 @@ class Upload extends CI_Controller
                 $this->load->model('index_model');
                 $this->load->library('form_validation');
                 $this->load->library('ion_auth');
-                $data['user'] =  $this->ion_auth->user()->row();
+                $usr= $this->ion_auth->user()->row();
+                $data['user'] = $usr;
+                $data["cat"] = $this->index_model->get_fills(NULL);
+
 
                 $config['upload_path']          = './uploads/';
                 $config['allowed_types']        = 'gif|jpg|png';
@@ -62,7 +83,7 @@ class Upload extends CI_Controller
                         $this->load->view('pages/upload_form', $error);
                         $this->load->view('templates/footer', $data);
                 } else {
-                        $this->index_model->insert_practiquesImatge();
+                        $this->index_model->insert_practiquesImatge($usr->username);
                         $data1 = array('upload_data' => $this->upload->data());
                         //die($data['upload_data']['file_name']);
                         $this->load->view('templates/header_profe', $data);
@@ -78,9 +99,14 @@ class Upload extends CI_Controller
                 $this->load->library('form_validation');
                 $this->load->library('ion_auth');
                 //$data['autor'] = $this->config->item("copy");
-                $data['user'] =  $this->ion_auth->user()->row();
 
-                $this->index_model->insert_practiquesVideo();
+                $usr= $this->ion_auth->user()->row();
+                $data['user'] = $usr;
+
+                $data['controller'] = $this;
+                $data["cat"] = $this->index_model->get_fills(NULL);
+
+                $this->index_model->insert_practiquesVideo($usr->username);
 
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/practicaVideo', $data);
@@ -91,6 +117,8 @@ class Upload extends CI_Controller
         public function indexVideo()
         {
                 $this->load->library('ion_auth');
+                $data['controller'] = $this;
+                $data["cat"] = $this->index_model->get_fills(NULL);
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
@@ -138,5 +166,7 @@ class Upload extends CI_Controller
                         $this->load->view('templates/footer', $data);
                 }
         }
+
+
 
 }

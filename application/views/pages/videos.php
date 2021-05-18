@@ -12,6 +12,11 @@
 
             <?php 
 $controller->mostrar_tree($cat); 
+
+//echo "<hr>";
+//echo "<select>";
+//$controller->mostrar_tree2($cat); 
+//echo "</select>";
 ?>
 
 
