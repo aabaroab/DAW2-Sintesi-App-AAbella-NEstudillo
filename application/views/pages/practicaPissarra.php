@@ -75,12 +75,12 @@
             <p class="btn btn-primary" type="button" onclick="changeTypeLine()">Linea</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeFullCircle()">R.Circle </p>
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderCircle()">B.Circle</p>
-            <p class="btn btn-primary" type="button" onclick="changeTypeFullRect()">R.Rectangle</p>
+            <p class="btn btn-primary" type="button" onclick="changeTypeFullRect()">R.Circle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderRect()">B.Rectangle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeText()">Text</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeClearRect()">Borrar area</p>
             <p class="btn btn-primary" type="button" onclick="cleanCanva()">Borrar tot</p>
-            <p class="btn btn-primary" type="button" onclick="saveImage()">Guardar</p>
+            <!--<p class="btn btn-primary" type="button" onclick="saveImage()">Guardar</p>-->
             <input type="hidden" name="imagenFinal" id="imagenFinal"/>            
             <script src="<?php echo base_url('/assets/js/scriptPissarra.js');?>"></script>
             <?php 
@@ -91,8 +91,10 @@
             
                 function uploadImgBase64 ($base64, $name){
                     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
-                    mkdir(base_url('/uploads/') .$name, 0777);
-                    $path= base_url('/uploads/').$name.'/'.$name;
+                    $rutaReal = realpath(base_url('/uploads/'). $name);
+                    mkdir($rutaReal, 0777);
+                    $path= $rutaReal.'/'.$name;
+                    
                     if(!file_put_contents($path, $datosBase64)){
                         echo "Error";
                         return false;
@@ -117,7 +119,7 @@
             <input type="checkbox" id="tag" name="tag" value="<?php $row->nom; ?>"> <label for="tag" id="tag" neme="tag"> <?php echo $row->nom; ?></label><br>
         <?php } ?>
 
-        <button type="submit" class="btn btn-primary btn-lg" style="width: 30%; margin-left: 30%">Crear</button>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 30%; margin-left: 30%"onclick="saveImage()">Crear</button>
 
     </form>
 
