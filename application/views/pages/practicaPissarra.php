@@ -91,9 +91,10 @@
             
                 function uploadImgBase64 ($base64, $name){
                     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
-                    $rutaReal = realpath(base_url('/uploads/'). $name);
-                    mkdir($rutaReal, 0777);
-                    $path= $rutaReal.'/'.$name;
+                    $rutaReal = realpath(base_url('/uploads/'));
+                    echo $rutaReal;
+                    mkdir($rutaReal. $name, 0777);
+                    $path= $rutaReal.$name.'/'.$name;
                     
                     if(!file_put_contents($path, $datosBase64)){
                         echo "Error";
