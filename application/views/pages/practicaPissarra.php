@@ -78,7 +78,7 @@
             <p class="btn btn-primary" type="button" onclick="changeTypeFullRect()">R.Rectangle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderRect()">B.Rectangle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeText()">Text</p>
-            <p class="btn btn-primary" type="button" onclick="changeClearRect()">Borrar area</p>
+            <p class="btn btn-primary" type="button" onclick="changeTypeClearRect()">Borrar area</p>
             <p class="btn btn-primary" type="button" onclick="cleanCanva()">Borrar tot</p>
             <p class="btn btn-primary" type="button" onclick="saveImage()">Guardar</p>
             <input type="hidden" name="imagenFinal" id="imagenFinal"/>            
