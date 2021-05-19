@@ -23,7 +23,7 @@
 
 <body>
 
-    <form action="<?php echo base_url('practicaPisarra') ?>" method="post" style="width: 50%; margin-left: 25%" id="formCanva" ENCTYPE='multipart/form-data'>
+    <form action="<?php echo base_url('practicaPissarra') ?>" method="post" style="width: 50%; margin-left: 25%" id="formCanva" ENCTYPE='multipart/form-data'>
         <div class="form-group">
             <p>Titol:</p>
             <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
@@ -91,8 +91,8 @@
             
                 function uploadImgBase64 ($base64, $name){
                     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
-                    mkdir('../../uploads/'.$name, 0777);
-                    $path= '../../uploads/'.$name.'/'.$name;
+                    mkdir(base_url('/uploads/') .$name, 0777);
+                    $path= base_url('/uploads/').$name.'/'.$name;
                     if(!file_put_contents($path, $datosBase64)){
                         echo "Error";
                         return false;
