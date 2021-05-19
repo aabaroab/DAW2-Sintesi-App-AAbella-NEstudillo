@@ -91,8 +91,8 @@
             
                 function uploadImgBase64 ($base64, $name){
                     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
-                    mkdir($_SERVER['DOCUMENT_ROOT'].'/uploads/'.$name, 0777);
-                    $path= $_SERVER['DOCUMENT_ROOT'].'/uploads/'.$name.'/'.$name;
+                    mkdir(base_url('/uploads/') .$name, 0777);
+                    $path= base_url('/uploads/').$name.'/'.$name;
                     if(!file_put_contents($path, $datosBase64)){
                         echo "Error";
                         return false;
