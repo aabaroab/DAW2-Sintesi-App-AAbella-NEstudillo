@@ -107,6 +107,14 @@ class Upload extends CI_Controller
                 $data['controller'] = $this;
                 $data["cat"] = $this->index_model->get_fills(NULL);
 
+                echo"<h1>video recurs</h1>";
+                $tags_enviats=$this->input->post("tagsphp");
+
+                print_r($tags_enviats);
+                die;
+
+
+
                 $this->index_model->insert_practiquesVideo($usr->username);
 
                 $this->load->view('templates/header_profe', $data);

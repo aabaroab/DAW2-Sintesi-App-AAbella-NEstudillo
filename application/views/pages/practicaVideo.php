@@ -84,8 +84,8 @@
         <?php $query = $this->db->get('tags');
 
         foreach ($query->result() as $row) { ?>
-            <input type="checkbox" id="tag" name="tag[<?php $row->nom; ?>]" value="<?php $row->nom; ?>"> <label for="tag" id="taglabel"> <?php echo $row->nom; ?></label><br>
-        <?php } ?>
+            <input type="checkbox" id="tag" name="tagsphp[]" value="<?php echo $row->nom; ?>"> <label for="tag" id="taglabel"> <?php echo $row->nom; ?></label><br>
+        <?php } ?>                                
 
         <button type="submit" class="btn btn-primary btn-lg" style="width: 30%; margin-left: 30%">Crear</button>
 
