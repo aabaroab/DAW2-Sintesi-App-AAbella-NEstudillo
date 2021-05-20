@@ -75,7 +75,7 @@
             <p class="btn btn-primary" type="button" onclick="changeTypeLine()">Linea</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeFullCircle()">R.Circle </p>
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderCircle()">B.Circle</p>
-            <p class="btn btn-primary" type="button" onclick="changeTypeFullRect()">R.Circle</p>
+            <p class="btn btn-primary" type="button" onclick="changeTypeFullRect()">R.Rectangle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderRect()">B.Rectangle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeText()">Text</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeClearRect()">Borrar area</p>
@@ -92,9 +92,8 @@
                 function uploadImgBase64 ($base64, $name){
                     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
                     $rutaReal = realpath(base_url('/uploads/'));
-                    echo $rutaReal;
-                    mkdir($rutaReal. $name, 0777);
-                    $path= $rutaReal.$name.'/'.$name;
+					mkdir($rutaReal. 'uploads/' .$name, 0777);
+                    $path= $rutaReal. 'uploads/' .$name. '/' .$name;
                     
                     if(!file_put_contents($path, $datosBase64)){
                         echo "Error";
