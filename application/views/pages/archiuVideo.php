@@ -63,7 +63,12 @@
 
         <div class="form-group">
             <p>Categoria:</p>
-            <input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">
+            <?php
+                echo "<select>";
+                echo "<hr>";
+                $controller->mostrar_tree2($cat);
+                echo "</select>"; 
+            ?>
         </div>
         <div>
             <p>Video:</p>

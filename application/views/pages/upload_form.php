@@ -11,10 +11,10 @@
             selector: '#descripciollargaInfografia'
         });
 
-        type="text/javascript">
-        tinymce.init({
-            selector: '#descripciocurtaInfografia'
-        });
+        type = "text/javascript" >
+            tinymce.init({
+                selector: '#descripciocurtaInfografia'
+            });
     </script>
 </head>
 
@@ -65,10 +65,10 @@
             <p>Categoria:</p>
             <!--<input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">-->
             <?php
-                //echo "<select>";
-                //echo "<hr>";
-                //$controller->mostrar_tree2($cat);
-                //echo "</select>";
+                echo "<select>";
+                echo "<hr>";
+                $controller->mostrar_tree2($cat);
+                echo "</select>"; 
             ?>
         </div>
 
@@ -86,7 +86,7 @@
         <?php $query = $this->db->get('tags');
 
         foreach ($query->result() as $row) { ?>
-            <input type="checkbox" id="tag" name="tag" value="<?php $row->nom; ?>"> <label for="tag"> <?php echo $row->nom; ?></label><br>
+            <input type="checkbox" id="tag" name="tagsphp[]" value="<?php echo $row->nom; ?>"> <label for="tag" id="taglabel"> <?php echo $row->nom; ?></label><br>
         <?php } ?>
 
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>

@@ -106,6 +106,10 @@ $route['administratCursos'] = "grocery_controller/groceryCursos";
 $route['administratCursos/(:any)'] = "grocery_controller/groceryCursos/$1"; 
 $route['administratCursos/(:any)/(:any)'] = "grocery_controller/groceryCursos/$1/$2";
 
+$route['administrarTags'] = "grocery_controller/groceryTagsprofe"; 
+$route['administrarTags/(:any)'] = "grocery_controller/groceryTagsprofe/$1"; 
+$route['administrarTags/(:any)/(:any)'] = "grocery_controller/groceryTagsprofe/$1/$2";
+
 $route['tree/category'] = 'tree/treecat_controller/index'; 
 //$route['tree/category'] = 'tree/index_controller/index'; 
 //$route['tree/category'] = 'tree/Upload/index'; 
@@ -118,4 +122,4 @@ $route['uploadVideo/do_upload_video'] = 'Upload/do_upload_video';
 $route['practicaVideo'] = 'Upload/crearVideorecurs';
 
 
-//iusuueueuueueuu
+//administrarTags
