@@ -252,7 +252,7 @@ class Index_controller extends CI_Controller
         }
         echo "</ol>";
     }
-//-----------------------------------------------------------
+    //-----------------------------------------------------------
     public function mostrar_tree2($categories)
     {
 
@@ -470,23 +470,23 @@ class Index_controller extends CI_Controller
         }
     }*/
 
-     //---------------------------------------------------------------------
+    //---------------------------------------------------------------------
 
-     public function practicaPissarra()
-     {
-         $data['autor'] = $this->config->item("copy");
-         $data['user'] =  $this->ion_auth->user()->row();
- 
-         if ($this->ion_auth->logged_in()) {
-             $groupprofe = 2;
- 
-             if ($this->ion_auth->in_group($groupprofe)) {
-                 $this->load->view('templates/header_profe', $data);
-                 $this->load->view('pages/practicaPissarra', $data);
-                 $this->load->view('templates/footer', $data);
-             }
-         }
-     }
+    public function practicaPissarra()
+    {
+        $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+
+        if ($this->ion_auth->logged_in()) {
+            $groupprofe = 2;
+
+            if ($this->ion_auth->in_group($groupprofe)) {
+                $this->load->view('templates/header_profe', $data);
+                $this->load->view('pages/practicaPissarra', $data);
+                $this->load->view('templates/footer', $data);
+            }
+        }
+    }
 
     //---------------------------------------------------------------------
 
@@ -517,5 +517,4 @@ class Index_controller extends CI_Controller
             $this->load->view('pages/login', $data);
         }
     }
-
 }

@@ -31,9 +31,24 @@ class Upload extends CI_Controller
 
                 //$this->load->view('tree/index', $data);
 
-                $this->load->view('templates/header_profe', $data);
-                $this->load->view('pages/upload_form', array('error' => ' '));
-                $this->load->view('templates/footer', $data);
+                // $this->load->view('templates/header_profe', $data);
+                // $this->load->view('pages/upload_form', array('error' => ' '));
+                // $this->load->view('templates/footer', $data);
+
+                if ($this->ion_auth->logged_in()) {
+
+                        $groupadmin = 'admin';
+                        $groupprofe = 'profesor';
+                        if ($this->ion_auth->in_group($groupadmin)) {
+                                $this->load->view('templates/header_privat', $data);
+                                $this->load->view('pages/upload_form', array('error' => ' '));
+                                $this->load->view('templates/footer', $data);
+                        } else if ($this->ion_auth->in_group($groupprofe)) {
+                                $this->load->view('templates/header_profe', $data);
+                                $this->load->view('pages/upload_form', array('error' => ' '));
+                                $this->load->view('templates/footer', $data);
+                        }
+                }
         }
 
         public function mostrar_tree2($categories)
@@ -88,9 +103,23 @@ class Upload extends CI_Controller
 
                         if (!$this->upload->do_upload('userfile')) {
                                 $error = array('error' => $this->upload->display_errors());
-                                $this->load->view('templates/header_profe', $data);
-                                $this->load->view('pages/upload_form', $error);
-                                $this->load->view('templates/footer', $data);
+                                // $this->load->view('templates/header_profe', $data);
+                                // $this->load->view('pages/upload_form', $error);
+                                // $this->load->view('templates/footer', $data);
+                                if ($this->ion_auth->logged_in()) {
+
+                                        $groupadmin = 'admin';
+                                        $groupprofe = 'profesor';
+                                        if ($this->ion_auth->in_group($groupadmin)) {
+                                                $this->load->view('templates/header_privat', $data);
+                                                $this->load->view('pages/upload_form', $error);
+                                                $this->load->view('templates/footer', $data);
+                                        } else if ($this->ion_auth->in_group($groupprofe)) {
+                                                $this->load->view('templates/header_profe', $data);
+                                                $this->load->view('pages/upload_form', $error);
+                                                $this->load->view('templates/footer', $data);
+                                        }
+                                }
                         } else {
                                 $idPractica = $this->index_model->insert_practiquesImatge($usr->username);
                                 foreach ($tags_enviats as &$valor) {
@@ -106,9 +135,22 @@ class Upload extends CI_Controller
                                 }
                                 $data1 = array('upload_data' => $this->upload->data());
                                 //die($data['upload_data']['file_name']);
-                                $this->load->view('templates/header_profe', $data);
-                                $this->load->view('pages/upload_success', $data1);
-                                $this->load->view('templates/footer', $data);
+                                // $this->load->view('templates/header_profe', $data);
+                                // $this->load->view('pages/upload_success', $data1);
+                                // $this->load->view('templates/footer', $data);
+                                if ($this->ion_auth->logged_in()) {
+                                        $groupadmin = 1;
+                                        $groupprofe = 2;
+                                        if ($this->ion_auth->in_group($groupadmin)) {
+                                                $this->load->view('templates/header_privat', $data);
+                                                $this->load->view('pages/upload_success', $data1);
+                                                $this->load->view('templates/footer', $data);
+                                        } else if ($this->ion_auth->in_group($groupprofe)) {
+                                                $this->load->view('templates/header_profe', $data);
+                                                $this->load->view('pages/upload_success', $data1);
+                                                $this->load->view('templates/footer', $data);
+                                        }
+                                }
                         }
                 } else {
                         if ($this->ion_auth->logged_in()) {
@@ -160,7 +202,6 @@ class Upload extends CI_Controller
                         redirect(base_url('crearpractica'));
                 } else {
                         if ($this->ion_auth->logged_in()) {
-
                                 $groupadmin = 1;
                                 $groupprofe = 2;
                                 if ($this->ion_auth->in_group($groupadmin)) {
@@ -185,9 +226,23 @@ class Upload extends CI_Controller
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
-                $this->load->view('templates/header_profe', $data);
-                $this->load->view('pages/archiuVideo', array('error' => ' '));
-                $this->load->view('templates/footer', $data);
+                // $this->load->view('templates/header_profe', $data);
+                // $this->load->view('pages/archiuVideo', array('error' => ' '));
+                // $this->load->view('templates/footer', $data);
+
+                if ($this->ion_auth->logged_in()) {
+                        $groupadmin = 1;
+                        $groupprofe = 2;
+                        if ($this->ion_auth->in_group($groupadmin)) {
+                                $this->load->view('templates/header_privat', $data);
+                                $this->load->view('pages/archiuVideo', array('error' => ' '));
+                                $this->load->view('templates/footer', $data);
+                        } else if ($this->ion_auth->in_group($groupprofe)) {
+                                $this->load->view('templates/header_profe', $data);
+                                $this->load->view('pages/archiuVideo', array('error' => ' '));
+                                $this->load->view('templates/footer', $data);
+                        }
+                }
         }
 
         public function do_upload_video()
@@ -223,9 +278,19 @@ class Upload extends CI_Controller
 
                         if (!$this->upload->do_upload('videofile')) {
                                 $error = array('error' => $this->upload->display_errors());
-                                $this->load->view('templates/header_profe', $data);
-                                $this->load->view('pages/archiuVideo', $error);
-                                $this->load->view('templates/footer', $data);
+                                if ($this->ion_auth->logged_in()) {
+                                        $groupadmin = 'admin';
+                                        $groupprofe = 'profesor';
+                                        if ($this->ion_auth->in_group($groupadmin)) {
+                                                $this->load->view('templates/header_privat', $data);
+                                                $this->load->view('pages/archiuVideo', $error);
+                                                $this->load->view('templates/footer', $data);
+                                        } else if ($this->ion_auth->in_group($groupprofe)) {
+                                                $this->load->view('templates/header_profe', $data);
+                                                $this->load->view('pages/archiuVideo', $error);
+                                                $this->load->view('templates/footer', $data);
+                                        }
+                                }
                         } else {
                                 $idPractica = $this->index_model->insert_practicaVideobd($usr->username);
                                 foreach ($tags_enviats as &$valor) {
@@ -243,10 +308,19 @@ class Upload extends CI_Controller
                                 $this->load->view('templates/footer', $data);
                         }
                 } else {
-
-                        $this->load->view('templates/header_profe', $data);
-                        $this->load->view('pages/archiuVideo', $data);
-                        $this->load->view('templates/footer', $data);
+                        if ($this->ion_auth->logged_in()) {
+                                $groupadmin = 'admin';
+                                $groupprofe = 'profesor';
+                                if ($this->ion_auth->in_group($groupadmin)) {
+                                        $this->load->view('templates/header_privat', $data);
+                                        $this->load->view('pages/archiuVideo', $data);
+                                        $this->load->view('templates/footer', $data);
+                                } else if ($this->ion_auth->in_group($groupprofe)) {
+                                        $this->load->view('templates/header_profe', $data);
+                                        $this->load->view('pages/archiuVideo', $data);
+                                        $this->load->view('templates/footer', $data);
+                                }
+                        }
                 }
         }
 }

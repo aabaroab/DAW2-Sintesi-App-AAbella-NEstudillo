@@ -363,12 +363,12 @@ class Grocery_controller extends CI_Controller
         $crud->set_table('tag_practica');
 
         $crud->display_as('tag_id', "Nom del tag");
-        $crud->display_as('practica_id', 'Nom practica');
+        $crud->display_as('practica_id', 'Titol practica');
         $crud->set_relation('tag_id', 'tags', 'nom');
-        $crud->field_type("tag_id", 'readonly');
-        $crud->set_relation('practica_id', 'practiques', 'description');
+        //$crud->field_type("tag_id", 'readonly');
+        $crud->set_relation('practica_id', 'practiques', 'titul');
 
-        $crud->unset_add();
+        //$crud->unset_add();
 
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
