@@ -21,10 +21,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="<?php echo base_url('videos'); ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">DAWTube<sup></sup></div>
+        <img style="width: 50%;" src="assets/img/logoApp.svg">
+        <div class="sidebar-brand-text">DAWTube<sup></sup></div>
     </a>
 
     <!-- Divider -->
