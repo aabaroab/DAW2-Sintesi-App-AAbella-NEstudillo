@@ -249,13 +249,13 @@ function getText(canvas, event) {
     var point;
     var rect = canvas.getBoundingClientRect();
     var ctx = canvas.getContext("2d");
-
+	var txt = document.getElementById('textCanva').value;
     texto = new Texto();
     point = new Point(event.clientX - rect.left, event.clientY - rect.top);
     texto.setp1(point);
     ctx.fillStyle = "Black";
     ctx.font = "14px Arial";
-    ctx.fillText("Test", texto.p1.x, texto.p1.y);
+    ctx.fillText(txt, texto.p1.x, texto.p1.y);
 }
 
 function getClearRect(canvas, event) {
