@@ -29,12 +29,6 @@ class Upload extends CI_Controller
                 $data['controller'] = $this;
                 $data["cat"] = $this->index_model->get_fills(NULL);
 
-                //$this->load->view('tree/index', $data);
-
-                // $this->load->view('templates/header_profe', $data);
-                // $this->load->view('pages/upload_form', array('error' => ' '));
-                // $this->load->view('templates/footer', $data);
-
                 if ($this->ion_auth->logged_in()) {
 
                         $groupadmin = 'admin';
@@ -84,7 +78,11 @@ class Upload extends CI_Controller
                 $data["cat"] = $this->index_model->get_fills(NULL);
 
 
-                $config['upload_path']          = './uploads/';
+                $idPractica = $this->index_model->insert_practiquesImatge($usr->username);
+                mkdir('./uploads/' . $idPractica, 0777);
+
+                //$config['upload_path']          = './uploads/';
+                $config['upload_path']          = './uploads/' . $idPractica;
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['encrypt_name']        = true;
                 $this->load->library('upload', $config);
@@ -103,11 +101,7 @@ class Upload extends CI_Controller
 
                         if (!$this->upload->do_upload('userfile')) {
                                 $error = array('error' => $this->upload->display_errors());
-                                // $this->load->view('templates/header_profe', $data);
-                                // $this->load->view('pages/upload_form', $error);
-                                // $this->load->view('templates/footer', $data);
                                 if ($this->ion_auth->logged_in()) {
-
                                         $groupadmin = 'admin';
                                         $groupprofe = 'profesor';
                                         if ($this->ion_auth->in_group($groupadmin)) {
@@ -121,7 +115,7 @@ class Upload extends CI_Controller
                                         }
                                 }
                         } else {
-                                $idPractica = $this->index_model->insert_practiquesImatge($usr->username);
+                                //$idPractica = $this->index_model->insert_practiquesImatge($usr->username);
                                 foreach ($tags_enviats as &$valor) {
                                         $tagValue = $this->index_model->getTagId($valor);
                                         $tagId = $tagValue['id'];
@@ -134,10 +128,6 @@ class Upload extends CI_Controller
                                         $this->db->insert('tag_practica', $datatag);
                                 }
                                 $data1 = array('upload_data' => $this->upload->data());
-                                //die($data['upload_data']['file_name']);
-                                // $this->load->view('templates/header_profe', $data);
-                                // $this->load->view('pages/upload_success', $data1);
-                                // $this->load->view('templates/footer', $data);
                                 if ($this->ion_auth->logged_in()) {
                                         $groupadmin = 1;
                                         $groupprofe = 2;
@@ -259,7 +249,11 @@ class Upload extends CI_Controller
                 $this->form_validation->set_rules('titolInfografia', 'titolInfografia', 'required');
 
 
+                //$practicaId = $this->input->post('titolInfografia');
+                //mkdir('./uploads/' . $practicaId, 0777);
+
                 $config['upload_path']          = './uploads/';
+                //$config['upload_path']          = './uploads/' . $practicaId;
                 $config['allowed_types']        = 'mp4|avi|mkv|flv|mov';
                 $config['encrypt_name']        = true;
                 $this->load->library('upload', $config);

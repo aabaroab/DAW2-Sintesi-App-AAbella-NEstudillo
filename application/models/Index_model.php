@@ -44,6 +44,7 @@ class Index_model extends CI_Model
         return $query->row_array();
     }
 //-----------------------------------------------------------------
+
     public function insert_practiquesVideo($prop)
     {
         $this->load->helper('url');
