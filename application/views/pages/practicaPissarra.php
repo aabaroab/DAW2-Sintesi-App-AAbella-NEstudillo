@@ -77,8 +77,9 @@
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderCircle()">B.Circle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeFullRect()">R.Rectangle</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeBorderRect()">B.Rectangle</p>
-	    	<br/>
-		<input type="text" id="textCanva"/>
+			<br>
+			
+			<input type="text" id="textCanva"/>
             <p class="btn btn-primary" type="button" onclick="changeTypeText()">Text</p>
             <p class="btn btn-primary" type="button" onclick="changeTypeClearRect()">Borrar area</p>
             <p class="btn btn-primary" type="button" onclick="cleanCanva()">Borrar tot</p>
