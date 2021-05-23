@@ -61,7 +61,6 @@
                     <a class="collapse-item"  href="<?php echo base_url('administrarPractiquesadmin'); ?>">Gestionar Practiques</a>
                     <a class="collapse-item"  href="<?php echo base_url('adminTags'); ?>">Gestionar Tags</a>
                     <a class="collapse-item"  href="<?php echo base_url('administratCursos'); ?>">Gestionar Cursos</a>
-                    <a class="collapse-item"  href="<?php echo base_url('administrarTags'); ?>">Gestionar Tags</a>
                     <a class="collapse-item" href="<?php echo base_url('crearusuariadmin'); ?>">Crear Usuaris</a>
                     <a class="collapse-item" href="<?php echo base_url('crearpractica'); ?>">Creear Practica</a>
                    <!-- <a class="collapse-item" href="<?php echo base_url('crearTag'); ?>">Crear Tag</a> -->
