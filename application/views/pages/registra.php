@@ -46,6 +46,13 @@
                             <div class="form-group">
                                 <input type="password" class="form-control form-control-user" id="PassUsuari" name="PassUsuari" placeholder="Password">
                             </div>
+
+                            <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Accepto les condicions</label>
+                                            </div>
+                                        </div>
                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </form>
                         <hr>

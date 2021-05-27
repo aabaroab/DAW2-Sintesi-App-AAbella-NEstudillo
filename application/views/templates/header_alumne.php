@@ -1,10 +1,11 @@
 <html>
 
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>DWTybe</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logoApp.svg') ?>">
 
 </head>
 

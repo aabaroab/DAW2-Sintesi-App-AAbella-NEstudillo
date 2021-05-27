@@ -75,6 +75,7 @@ $route['crearTag'] = 'index_controller/crearTag';
 
 $route['perfilusuari'] = 'index_controller/perfilusuari';
 $route['practicaVideo'] = 'index_controller/practicaVideo';
+
 $route['practicaPissarra'] = 'index_controller/practicaPissarra';
 
 

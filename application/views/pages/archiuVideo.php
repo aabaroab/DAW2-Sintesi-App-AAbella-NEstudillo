@@ -64,7 +64,7 @@
         <div class="form-group">
             <p>Categoria:</p>
             <?php
-                echo "<select>";
+                echo "<select name='curs' id='curs'>"; 
                 echo "<hr>";
                 $controller->mostrar_tree2($cat);
                 echo "</select>"; 
@@ -85,6 +85,18 @@
         foreach ($query->result() as $row) { ?>
             <input type="checkbox" id="tag" name="tag" value="<?php $row->nom; ?>"> <label for="tag"> <?php echo $row->nom; ?></label><br>
         <?php } ?>
+
+
+        <div>
+            <label for="acces">Tipus d' accés:</label>
+            <select name="acces" id="acces">
+                <option value="Grupusuaris">Grup usuaris</option>
+                <option value="Perfilusuaris">Perfil usuaris</option>
+                <option value="Codiinvitacio">Codi invitació</option>
+                <option value="Public">Públic</option>
+            </select>
+        </div>
+        <br><br>
 
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 

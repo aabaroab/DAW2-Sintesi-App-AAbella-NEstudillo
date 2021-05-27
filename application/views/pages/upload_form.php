@@ -16,6 +16,7 @@
                 selector: '#descripciocurtaInfografia'
             });
     </script>
+    <script src="assets/js/fichersextra.js"></script>
 </head>
 
 <body>
@@ -65,20 +66,23 @@
             <p>Categoria:</p>
             <!--<input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">-->
             <?php
-                echo "<select>";
-                echo "<hr>";
-                $controller->mostrar_tree2($cat);
-                echo "</select>"; 
+            echo "<select name='curs' id='curs'>";
+            echo "<hr>";
+            $controller->mostrar_tree2($cat);
+            echo "</select>";
             ?>
         </div>
 
         <div>
             <p>Imatge:</p>
-            <input type="file" name="userfile" id="userfile" size="20" multiple="multiple" />
+            <input type="file" name="userfile" size="20" multiple="multiple" />
         </div><br />
         <div>
-            <p>Ficher Extra:</p>
-            <input type="file" name="userfileExtra" id="userfileExtra" size="20" multiple="multiple" />
+            <p>Fitxers Extra:</p>
+            <div id="id_div_on_posar_input_file" name="id_div_on_posar_input_file"></div>
+            <script>
+                var obj = new DawFileUploader("id_div_on_posar_input_file", "maxim_bytes", "nom_del_input");
+            </script>
         </div>
 
         <br /><br />
@@ -88,6 +92,18 @@
         foreach ($query->result() as $row) { ?>
             <input type="checkbox" id="tag" name="tagsphp[]" value="<?php echo $row->nom; ?>"> <label for="tag" id="taglabel"> <?php echo $row->nom; ?></label><br>
         <?php } ?>
+        <br/><br/>
+
+        <div>
+            <label for="acces">Tipus d' accés:</label>
+            <select name="acces" id="acces">
+                <option value="Grupusuaris">Grup usuaris</option>
+                <option value="Perfilusuaris">Perfil usuaris</option>
+                <option value="Codiinvitacio">Codi invitació</option>
+                <option value="Public">Públic</option>
+            </select>
+        </div>
+        <br><br>
 
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 

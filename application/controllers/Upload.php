@@ -79,10 +79,10 @@ class Upload extends CI_Controller
 
 
                 $idPractica = $this->index_model->insert_practiquesImatge($usr->username);
-                mkdir('./uploads/' . $idPractica, 0777);
+                mkdir('../../../uploads/' . $idPractica, 0777);
 
-                //$config['upload_path']          = './uploads/';
-                $config['upload_path']          = './uploads/' . $idPractica;
+
+                $config['upload_path']          = '../../../uploads/' . $idPractica;
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['encrypt_name']        = true;
                 $this->load->library('upload', $config);
@@ -115,7 +115,6 @@ class Upload extends CI_Controller
                                         }
                                 }
                         } else {
-                                //$idPractica = $this->index_model->insert_practiquesImatge($usr->username);
                                 foreach ($tags_enviats as &$valor) {
                                         $tagValue = $this->index_model->getTagId($valor);
                                         $tagId = $tagValue['id'];
@@ -127,6 +126,14 @@ class Upload extends CI_Controller
 
                                         $this->db->insert('tag_practica', $datatag);
                                 }
+                                //-------------------------------------------------------------
+                                /*$datacurs = array(
+                                        'practica_id' => $idPractica,
+                                        'curs_id' => $this->input->post('curs'),
+                                );
+
+                                $this->db->insert('curs_practica', $datacurs);*/
+                                //-------------------------------------------------------------
                                 $data1 = array('upload_data' => $this->upload->data());
                                 if ($this->ion_auth->logged_in()) {
                                         $groupadmin = 1;
@@ -216,10 +223,6 @@ class Upload extends CI_Controller
                 //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
-                // $this->load->view('templates/header_profe', $data);
-                // $this->load->view('pages/archiuVideo', array('error' => ' '));
-                // $this->load->view('templates/footer', $data);
-
                 if ($this->ion_auth->logged_in()) {
                         $groupadmin = 1;
                         $groupprofe = 2;
@@ -250,11 +253,12 @@ class Upload extends CI_Controller
 
 
                 //$practicaId = $this->input->post('titolInfografia');
-                //mkdir('./uploads/' . $practicaId, 0777);
+                $idPractica = $this->index_model->insert_practicaVideobd($usr->username);
+                mkdir('../../../uploads/' . $idPractica, 0777);
 
-                $config['upload_path']          = './uploads/';
-                //$config['upload_path']          = './uploads/' . $practicaId;
-                $config['allowed_types']        = 'mp4|avi|mkv|flv|mov';
+                //$config['upload_path']          = './uploads/';
+                $config['upload_path']          = '../../../uploads/' . $idPractica;
+                $config['allowed_types']        = 'mp4';
                 $config['encrypt_name']        = true;
                 $this->load->library('upload', $config);
 
@@ -286,7 +290,7 @@ class Upload extends CI_Controller
                                         }
                                 }
                         } else {
-                                $idPractica = $this->index_model->insert_practicaVideobd($usr->username);
+                                //$idPractica = $this->index_model->insert_practicaVideobd($usr->username);
                                 foreach ($tags_enviats as &$valor) {
                                         $tagValue = $this->index_model->getTagId($valor);
                                         $tagId = $tagValue['id'];

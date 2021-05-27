@@ -1,21 +1,22 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>DWTube</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logoApp.svg') ?>">
     
 
 </head>
-<?php if(!isset($grocery)){?>
-<script type="text/javascript" src='<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>'></script>
-<?php }?>
+
+<script src="https://cdn.tiny.cloud/1/h0eyqfi236byw3c9d1qhtktoermf6bzixitvp4963bg3p1nm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
 
 
 <!---------------------------------------------------------------------------------------------------------------------------->
-
-
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -26,7 +27,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="<?php echo base_url('videos'); ?>">
         <img style="width: 50%;" src="assets/img/logoApp.svg">
-        <div class="sidebar-brand-text">DAWTube<sup></sup></div>
+        <div class="sidebar-brand-text">DWTube<sup></sup></div>
     </a>
 
         <!-- Divider -->

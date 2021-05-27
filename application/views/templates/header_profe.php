@@ -2,19 +2,15 @@
 <html>
 
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>DWTube</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logoApp.svg') ?>">
 
 </head>
 
 <script src="https://cdn.tiny.cloud/1/h0eyqfi236byw3c9d1qhtktoermf6bzixitvp4963bg3p1nm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
-
-
-
-
 
 <!---------------------------------------------------------------------------------------------------------------------------->
 

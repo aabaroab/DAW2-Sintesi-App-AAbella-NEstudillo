@@ -58,8 +58,9 @@ class Index_model extends CI_Model
             'material' => $this->input->post('linckVideo'),
             'categoria' => $this->input->post('categoriaPractica'),
             'profesor' => $prop,
-            //'tags' => $this->input->post('tag['.$row->nom.']'),
             'tipus_recurs' => $tipus_recurs,
+            'acces' => $this->input->post('acces'),
+            'categoria' => $this->input->post('curs'),
         );
 
         $this->db->insert('practiques', $data);
@@ -79,6 +80,8 @@ class Index_model extends CI_Model
             'categoria' => $this->input->post('categoriaPractica'),
             'profesor' => $prop,
             'tipus_recurs' => $tipus_recurs,
+            'acces' => $this->input->post('acces'),
+            'categoria' => $this->input->post('curs'),
         );
 
         $this->db->insert('practiques', $data);
@@ -108,19 +111,13 @@ class Index_model extends CI_Model
             'categoria' => $this->input->post('categoriaPractica'),
             'profesor' => $prop,
             'tipus_recurs' => $tipus_recurs,
+            'acces' => $this->input->post('acces'),
+            'categoria' => $this->input->post('curs'),
         );
 
         $this->db->insert('practiques', $data);
         return $this->db->insert_id();
     }
-
-
-
-
-    /* function mostrar_tag()
-    {
-        $query = $this->db->get('tags');
-    }*/
 
 
 }

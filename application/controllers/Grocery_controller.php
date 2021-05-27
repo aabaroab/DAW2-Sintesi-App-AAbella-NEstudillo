@@ -20,23 +20,36 @@ class Grocery_controller extends CI_Controller
     public function grocery()
     {
         $crud = new grocery_CRUD();
-
-        $crud->set_subject('Users');
-        $crud->set_theme('datatables');
-        $crud->set_table('users');
-
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
 
-        $crud->columns('first_name', 'last_name', 'username', 'email', 'phone');
-        //$crud->fields('username', 'password', 'email');
-        $crud->fields('first_name', 'last_name', 'username', 'email', 'phone');
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
+                $crud->set_subject('Users');
+                $crud->set_theme('datatables');
+                $crud->set_table('users');
 
-        $crud->unset_add();
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
 
-        $output = $crud->render();
+                $crud->columns('first_name', 'last_name', 'username', 'email', 'phone');
+                //$crud->fields('username', 'password', 'email');
+                $crud->fields('first_name', 'last_name', 'username', 'email', 'phone');
 
-        $this->_example_output($output);
+                $crud->unset_add();
+
+                $output = $crud->render();
+
+                $this->_example_output($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_output($output = null)
@@ -68,25 +81,39 @@ class Grocery_controller extends CI_Controller
     public function groceryalumnes()
     {
         $crud = new grocery_CRUD();
-
-        $crud->set_subject('Users');
-        $crud->set_theme('datatables');
-        $crud->set_table('users');
-
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
 
-        $crud->columns('first_name', 'last_name', 'username', 'email', 'phone');
-        //$crud->fields('username', 'password', 'email');
-        $crud->fields('first_name', 'last_name', 'username', 'email', 'phone');
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
 
-        $crud->unset_add();
+                $crud->set_subject('Users');
+                $crud->set_theme('datatables');
+                $crud->set_table('users');
+
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
+
+                $crud->columns('first_name', 'last_name', 'username', 'email', 'phone');
+                //$crud->fields('username', 'password', 'email');
+                $crud->fields('first_name', 'last_name', 'username', 'email', 'phone');
+
+                $crud->unset_add();
 
 
 
-        $output = $crud->render();
+                $output = $crud->render();
 
-        $this->_example_outputalumnes($output);
+                $this->_example_outputalumnes($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_outputalumnes($output = null)
@@ -116,25 +143,39 @@ class Grocery_controller extends CI_Controller
     public function groceryusuaris()
     {
         $crud = new grocery_CRUD();
-
-        $crud->set_subject('Users goups');
-        $crud->set_theme('datatables');
-        $crud->set_table('users_groups');
-
-        $crud->display_as('user_id', "Nom d'usuari");
-        $crud->display_as('group_id', 'Rol');
-        $crud->set_relation('user_id', 'users', 'username');
-        $crud->field_type("user_id", 'readonly');
-        $crud->set_relation('group_id', 'groups', 'description');
-
-        $crud->unset_add();
-
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
 
-        $output = $crud->render();
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
 
-        $this->_example_output_grups($output);
+                $crud->set_subject('Users goups');
+                $crud->set_theme('datatables');
+                $crud->set_table('users_groups');
+
+                $crud->display_as('user_id', "Nom d'usuari");
+                $crud->display_as('group_id', 'Rol');
+                $crud->set_relation('user_id', 'users', 'username');
+                $crud->field_type("user_id", 'readonly');
+                $crud->set_relation('group_id', 'groups', 'description');
+
+                $crud->unset_add();
+
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
+
+                $output = $crud->render();
+
+                $this->_example_output_grups($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_output_grups($output = null)
@@ -167,24 +208,34 @@ class Grocery_controller extends CI_Controller
         $usr = $this->ion_auth->user()->row();
         $data['user'] = $usr;
 
-        $crud->where('profesor =', $usr->username);
-        $crud->set_subject('practiques');
-        $crud->set_theme('datatables');
-        $crud->set_table('practiques');
+        if ($this->ion_auth->logged_in()) {
+            $groupprofe = 'profesor';
+            if ($this->ion_auth->in_group($groupprofe)) {
 
-        $data['title'] = 'Noticies';
-        $data['autor'] = $this->config->item("copy");
+                $crud->where('profesor =', $usr->username);
+                $crud->set_subject('practiques');
+                $crud->set_theme('datatables');
+                $crud->set_table('practiques');
 
-        $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
-        $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
 
-        $crud->unset_add();
+                $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+                $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+
+                $crud->unset_add();
 
 
 
-        $output = $crud->render();
+                $output = $crud->render();
 
-        $this->_example_outputpractiques($output);
+                $this->_example_outputpractiques($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_outputpractiques($output = null)
@@ -216,24 +267,37 @@ class Grocery_controller extends CI_Controller
     public function groceryPractiques2()
     {
         $crud = new grocery_CRUD();
-
-        $crud->set_subject('practiques');
-        $crud->set_theme('datatables');
-        $crud->set_table('practiques');
-
-        $data['title'] = 'Noticies';
+        $data['title'] = 'Gestionar Practiques';
         $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
 
-        $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
-        $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
+                $crud->set_subject('practiques');
+                $crud->set_theme('datatables');
+                $crud->set_table('practiques');
 
-        $crud->unset_add();
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
+
+                $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
+                $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
+
+                $crud->unset_add();
 
 
 
-        $output = $crud->render();
+                $output = $crud->render();
 
-        $this->_example_outputpractiques2($output);
+                $this->_example_outputpractiques2($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_outputpractiques2($output = null)
@@ -264,21 +328,34 @@ class Grocery_controller extends CI_Controller
     public function groceryTags()
     {
         $crud = new grocery_CRUD();
-
-        $crud->set_subject('tags');
-        $crud->set_theme('datatables');
-        $crud->set_table('tags');
-
-        $data['title'] = 'Noticies';
+        $data['title'] = 'Gestionar Practiques';
         $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
 
-        $crud->columns('nom');
-        $crud->fields('nom');
+                $crud->set_subject('tags');
+                $crud->set_theme('datatables');
+                $crud->set_table('tags');
+
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
+
+                $crud->columns('nom');
+                $crud->fields('nom');
 
 
-        $output = $crud->render();
+                $output = $crud->render();
 
-        $this->_example_outputtags($output);
+                $this->_example_outputtags($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_outputtags($output = null)
@@ -357,25 +434,38 @@ class Grocery_controller extends CI_Controller
     public function groceryTagsprofe()
     {
         $crud = new grocery_CRUD();
-
-        $crud->set_subject('Tag Practiques');
-        $crud->set_theme('datatables');
-        $crud->set_table('tag_practica');
-
-        $crud->display_as('tag_id', "Nom del tag");
-        $crud->display_as('practica_id', 'Titol practica');
-        $crud->set_relation('tag_id', 'tags', 'nom');
-        //$crud->field_type("tag_id", 'readonly');
-        $crud->set_relation('practica_id', 'practiques', 'titul');
-
-        //$crud->unset_add();
-
-        $data['title'] = 'Noticies';
+        $data['title'] = 'Gestionar Practiques';
         $data['autor'] = $this->config->item("copy");
+        $data['user'] =  $this->ion_auth->user()->row();
+        $data["grocery"] = true;
+        if ($this->ion_auth->logged_in()) {
+            $groupadmin = 'admin';
+            if ($this->ion_auth->in_group($groupadmin)) {
 
-        $output = $crud->render();
+                $crud->set_subject('Tag Practiques');
+                $crud->set_theme('datatables');
+                $crud->set_table('tag_practica');
 
-        $this->_example_output_tags($output);
+                $crud->display_as('tag_id', "Nom del tag");
+                $crud->display_as('practica_id', 'Titol practica');
+                $crud->set_relation('tag_id', 'tags', 'nom');
+                //$crud->field_type("tag_id", 'readonly');
+                $crud->set_relation('practica_id', 'practiques', 'titul');
+
+                //$crud->unset_add();
+
+                $data['title'] = 'Noticies';
+                $data['autor'] = $this->config->item("copy");
+
+                $output = $crud->render();
+
+                $this->_example_output_tags($output);
+            } else {
+                $this->load->view('pages/login', $data);
+            }
+        } else {
+            $this->load->view('pages/login', $data);
+        }
     }
 
     function _example_output_tags($output = null)

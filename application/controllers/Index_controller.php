@@ -106,9 +106,9 @@ class Index_controller extends CI_Controller
         $this->load->library('ion_auth');
 
 
-        $this->form_validation->set_rules('exampleInputEmail', 'exampleInputEmail', 'required');
         $this->form_validation->set_rules('exampleInputPassword', 'exampleInputPassword', 'required');
-        $this->form_validation->set_rules('customCheck', 'customCheck', 'required');
+        //$this->form_validation->set_rules('customCheck', 'customCheck', 'required');
+        $this->form_validation->set_rules('exampleInputEmail', 'exampleInputEmail', 'required');
 
         $identity = $this->input->post('exampleInputEmail');
         $password = $this->input->post('exampleInputPassword');
@@ -145,18 +145,33 @@ class Index_controller extends CI_Controller
         $data['title'] = 'Noticies';
         $data['autor'] = $this->config->item("copy");
 
-        $username = $this->input->post('UsernameUsuari');
-        $password = $this->input->post('PassUsuari');
-        $email = $this->input->post('EmailUsuari');
-        $additional_data = array(
-            'first_name' => $this->input->post('NomUsuari'),
-            'last_name' => $this->input->post('CognomsUsuari'),
-            'phone' => $this->input->post('TelefonUsuari'),
-        );
+        $this->form_validation->set_rules('NomUsuari', 'NomUsuari', 'required');
+        $this->form_validation->set_rules('CognomsUsuari', 'CognomsUsuari', 'required');
+        $this->form_validation->set_rules('EmailUsuari', 'EmailUsuari', 'required');
+        $this->form_validation->set_rules('UsernameUsuari', 'UsernameUsuari', 'required');
+        $this->form_validation->set_rules('TelefonUsuari', 'TelefonUsuari', 'required');
+        $this->form_validation->set_rules('PassUsuari', 'PassUsuari', 'required');
+        $this->form_validation->set_rules('customCheck', 'customCheck', 'required');
 
-        $this->ion_auth->register($username, $password, $email, $additional_data);
+        if ($this->form_validation->run() === True) {
+            //$this->load->view('pages/login', $data);
 
-        $this->load->view('pages/registra', $data);
+
+            $username = $this->input->post('UsernameUsuari');
+            $password = $this->input->post('PassUsuari');
+            $email = $this->input->post('EmailUsuari');
+            $additional_data = array(
+                'first_name' => $this->input->post('NomUsuari'),
+                'last_name' => $this->input->post('CognomsUsuari'),
+                'phone' => $this->input->post('TelefonUsuari'),
+            );
+
+            $this->ion_auth->register($username, $password, $email, $additional_data);
+
+            $this->load->view('pages/login', $data);
+        } else {
+            $this->load->view('pages/registra', $data);
+        }
     }
 
     //---------------------------------------------------------------------
@@ -476,12 +491,19 @@ class Index_controller extends CI_Controller
     {
         $data['autor'] = $this->config->item("copy");
         $data['user'] =  $this->ion_auth->user()->row();
+        $data['controller'] = $this;
+        $data["cat"] = $this->index_model->get_fills(NULL);
 
         if ($this->ion_auth->logged_in()) {
-            $groupprofe = 2;
+            $groupprofe = 'profesor';
+            $groupadmin = 'admin';
 
             if ($this->ion_auth->in_group($groupprofe)) {
                 $this->load->view('templates/header_profe', $data);
+                $this->load->view('pages/practicaPissarra', $data);
+                $this->load->view('templates/footer', $data);
+            } else   if ($this->ion_auth->in_group($groupadmin)) {
+                $this->load->view('templates/header_privat', $data);
                 $this->load->view('pages/practicaPissarra', $data);
                 $this->load->view('templates/footer', $data);
             }
