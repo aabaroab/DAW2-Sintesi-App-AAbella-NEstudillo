@@ -94,9 +94,12 @@
             
                 function uploadImgBase64 ($base64, $name){
                     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
-                    $rutaReal = realpath(base_url('/uploads/'));
-					mkdir($rutaReal. 'uploads/' .$name, 0777);
-                    $path= $rutaReal. 'uploads/' .$name. '/' .$name;
+                    $rutaReal = realpath(base_url('/application/'));
+                    chdir($rutaReal);
+                    chdir("../../../");
+                    //$rutaReal = realpath(base_url('/uploads/'));
+					mkdir(/*$rutaReal. */'uploads/' .$name, 0777);
+                    $path= /*$rutaReal. */'uploads/' .$name. '/' .$name;
                     
                     if(!file_put_contents($path, $datosBase64)){
                         echo "Error";
@@ -114,16 +117,8 @@
 
         <div class="form-group">
             <p>Categoria:</p>
-            <!--<input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">-->
-            <?php
-            echo "<select>";
-            echo "<hr>";
-            $controller->mostrar_tree2($cat);
-            echo "</select>";
-            ?>
+            <input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">
         </div>
-
-        
         <?php $query = $this->db->get('tags');
 
         foreach ($query->result() as $row) { ?>
