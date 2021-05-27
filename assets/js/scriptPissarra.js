@@ -126,10 +126,12 @@ function getLine(canvas, event) {
     var ctx = canvas.getContext("2d");
 
     if (linea === null) {
+        ctx.beginPath();
         linea = new Line();
         point = new Point(event.clientX - rect.left, event.clientY - rect.top)
         linea.setp1(point);
         ctx.moveTo(linea.p1.x, linea.p1.y);
+        
 
     } else {
         point = new Point(event.clientX - rect.left, event.clientY - rect.top)
@@ -137,6 +139,7 @@ function getLine(canvas, event) {
         ctx.lineTo(linea.p2.x, linea.p2.y);
         ctx.stroke();
         linea = null;
+        ctx.closePath();
 
     }
 }
@@ -168,6 +171,7 @@ function getFullCircle(canvas, event) {
         ctx.stroke();
         console.log(circulo)
         circulo = null;
+        ctx.closePath();
     }
 }
 
@@ -190,6 +194,7 @@ function getBorderCircle(canvas, event) {
         ctx.stroke();
         console.log(circulo)
         circulo = null;
+        ctx.closePath();
     }
 }
 
@@ -217,6 +222,7 @@ function getFullRect(canvas, event) {
         ctx.fillRect(rectangulo.p2.x, rectangulo.p2.y, anchura, altura);
         ctx.stroke();
         rectangulo = null;
+        ctx.closePath();
     }
 }
 
@@ -240,6 +246,7 @@ function getBorderRect(canvas, event) {
         ctx.rect(rectangulo.p2.x, rectangulo.p2.y, anchura, altura);
         ctx.stroke();
         rectangulo = null;
+        ctx.closePath();
     }
 }
 
@@ -277,6 +284,7 @@ function getClearRect(canvas, event) {
         altura = rectangulo.p1.y - rectangulo.p2.y;
         ctx.clearRect(rectangulo.p2.x, rectangulo.p2.y, anchura, altura);
         rectangulo = null;
+        ctx.closePath();
     }
 }
 
