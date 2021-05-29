@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Upload Form</title>
+    <title>Formulari</title>
 
 
     <script src="https://cdn.tiny.cloud/1/h0eyqfi236byw3c9d1qhtktoermf6bzixitvp4963bg3p1nm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -30,7 +30,7 @@
             <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
         </div>
         <div class="form-group">
-            <p>Descripció Curata:</p>
+            <p>Descripció curta:</p>
             <textarea class="form-control" id="descripciocurtaInfografia" name="descripciocurtaInfografia"></textarea>
         </div>
         <!------------------------------------------------------------------------------------------------------->
@@ -46,7 +46,7 @@
         </script>
         <!------------------------------------------------------------------------------------------------------->
         <div class="form-group">
-            <p>Descripció Llarga:</p>
+            <p>Descripció llarga:</p>
             <textarea id="descripciollargaInfografia" name="descripciollargaInfografia" class="form-control"></textarea>
         </div>
         <!------------------------------------------------------------------------------------------------------->
@@ -78,7 +78,7 @@
             <input type="file" name="userfile" size="20" multiple="multiple" />
         </div><br />
         <div>
-            <p>Fitxers Extra:</p>
+            <p>Fitxers extra:</p>
             <div id="id_div_on_posar_input_file" name="id_div_on_posar_input_file"></div>
             <script>
                 var obj = new DawFileUploader("id_div_on_posar_input_file", "maxim_bytes", "nom_del_input");
@@ -95,7 +95,7 @@
         <br /><br />
 
         <div>
-            <label for="acces">Tipus d' accés:</label>
+            <label for="acces">Tipus d'accés:</label>
             <select name="acces" id="acces" onchange="acsesinv()">
                 <option value="Grupusuaris">Grup usuaris</option>
                 <option value="Perfilusuaris">Perfil usuaris</option>

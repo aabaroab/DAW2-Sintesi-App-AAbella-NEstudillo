@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>Crear practica</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
@@ -40,10 +40,10 @@
                                         <th><a href="<?php echo base_url('practicaVideo') ?>">Videorecurs</a></th>
                                     </tr>
                                     <tr>
-                                        <th><a href="<?php echo base_url('uploadVideo') ?>">Fichers de Video</a></th>
+                                        <th><a href="<?php echo base_url('uploadVideo') ?>">Fitxers de video</a></th>
                                     </tr>
                                     <tr>
-                                        <th><a href="<?php echo base_url('practicaPissarra') ?>">Pissara</a></th>
+                                        <th><a href="<?php echo base_url('practicaPissarra') ?>">Pissarra</a></th>
                                     </tr>
                                 </tbody>
                             </table>

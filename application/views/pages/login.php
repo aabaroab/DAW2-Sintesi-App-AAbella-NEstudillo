@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-                <title>CodeIgniter Tutorial</title>
+                <title>Login</title>
                 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
@@ -49,7 +49,7 @@
                                             </div>
                                         </div>-->
 
-                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
 
                                     </form>
                                     <hr>
@@ -57,10 +57,10 @@
                                         <a class="small"  href="<?php echo base_url('mostrarcanviarpassword'); ?>">Canviar contraseña</a>
                                     </div>-->
                                     <div class="text-center">
-                                        <a class="small" href="<?php echo base_url('registra'); ?>">Crear Compte</a>
+                                        <a class="small" href="<?php echo base_url('registra'); ?>">Crear compte</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="<?php echo base_url('videos'); ?>">Home</a>
+                                        <a class="small" href="<?php echo base_url('videos'); ?>">Pagina principal</a>
                                     </div>
                                 </div>
                             </div>

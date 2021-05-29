@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-                <title>CodeIgniter Tutorial</title>
+                <title>Canviar contrasenya</title>
         <!--<link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">-->
@@ -30,7 +30,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Canviar Contraseña</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Canviar contrasenya</h1>
                                     </div>
                                     <form class="user" action="<?php echo base_url('canviarpassword') ?>" method="post">
                                         <div class="form-group">
@@ -47,7 +47,7 @@
                                                 id="repetircontraseña" name="repetircontraseña" placeholder="Verificar contraseña">
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
 
                                     </form>
                                     <hr>

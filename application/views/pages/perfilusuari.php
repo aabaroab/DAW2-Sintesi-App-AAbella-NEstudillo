@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <p>Nom Usuari:</p><input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>" disabled="disabled">
+                                    <p>Nom usuari:</p><input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>" disabled="disabled">
                                 </div>
                                 <div class="col-sm-6">
                                     <p>Telefon:</p><input type="text" class="form-control form-control-user" id="TelefonUsuari" name="TelefonUsuari" value="<?php echo $info_user->phone; ?>" disabled="disabled">

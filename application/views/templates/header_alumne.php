@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>DWTybe</title>
+    <title>DWTube</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
@@ -58,11 +58,11 @@
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
+                    <h6 class="collapse-header">Opcions</h6>
                     <a class="collapse-item" href="<?php echo base_url('perfilusuari'); ?>">Perfil</a>
-                    <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
+                    <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Tancar sessió</a>
                     <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
-                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Forgot Password</a>
+                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Canviar contrasenya</a>
 
                 </div>
             </div>
