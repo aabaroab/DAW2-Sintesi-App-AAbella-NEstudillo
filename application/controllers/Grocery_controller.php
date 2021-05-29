@@ -220,15 +220,11 @@ class Grocery_controller extends CI_Controller
                 $data['title'] = 'Noticies';
                 $data['autor'] = $this->config->item("copy");
 
-                $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
-                $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
-
+                $crud->columns('titul', 'descripcio', 'explicacio', 'categoria', 'acces', 'codiinvitacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+                $crud->fields('titul', 'descripcio', 'explicacio', 'categoria', 'acces', 'codiinvitacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
                 $crud->unset_add();
-
-
-
                 $output = $crud->render();
-
+                
                 $this->_example_outputpractiques($output);
             } else {
                 $this->load->view('pages/login', $data);
@@ -247,9 +243,7 @@ class Grocery_controller extends CI_Controller
 
 
         if ($this->ion_auth->logged_in()) {
-
             $groupprofe = 'profesor';
-
             if ($this->ion_auth->in_group($groupprofe)) {
                 $this->load->view('templates/header_profe', $data);
                 $this->load->view('pages/administrarPractiques', (array)$output);

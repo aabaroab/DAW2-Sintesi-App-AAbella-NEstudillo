@@ -92,11 +92,11 @@
         foreach ($query->result() as $row) { ?>
             <input type="checkbox" id="tag" name="tagsphp[]" value="<?php echo $row->nom; ?>"> <label for="tag" id="taglabel"> <?php echo $row->nom; ?></label><br>
         <?php } ?>
-        <br/><br/>
+        <br /><br />
 
         <div>
             <label for="acces">Tipus d' accés:</label>
-            <select name="acces" id="acces">
+            <select name="acces" id="acces" onchange="acsesinv()">
                 <option value="Grupusuaris">Grup usuaris</option>
                 <option value="Perfilusuaris">Perfil usuaris</option>
                 <option value="Codiinvitacio">Codi invitació</option>
@@ -104,6 +104,18 @@
             </select>
         </div>
         <br><br>
+
+        <input hidden type="text" class="form-control" id="acsescodi" name="acsescodi">
+
+        <script>
+            function acsesinv() {
+                if (document.getElementById('acces').value != 'Codiinvitacio') {
+                    document.getElementById('acsescodi').hidden = true;
+                } else {
+                    document.getElementById('acsescodi').hidden = false;
+                }
+            }
+        </script>
 
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 

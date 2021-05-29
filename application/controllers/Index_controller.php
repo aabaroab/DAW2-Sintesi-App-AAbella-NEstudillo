@@ -228,9 +228,9 @@ class Index_controller extends CI_Controller
         //$this->load->view('templates/header_prova', $data);
         if ($this->ion_auth->logged_in()) {
 
-            $groupadmin = 1;
-            $groupprofe = 2;
-            $groupalumne = 3;
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+            $groupalumne = 'alumne';
 
             if ($this->ion_auth->in_group($groupadmin)) {
                 $this->load->view('templates/header_privat', $data);
@@ -322,9 +322,9 @@ class Index_controller extends CI_Controller
                 redirect(base_url('perfilusuari'));
             }
 
-            $groupadmin = 1;
-            $groupprofe = 2;
-            $groupalumne = 3;
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+            $groupalumne = 'alumne';
 
             if ($this->ion_auth->in_group($groupadmin)) {
                 $this->load->view('templates/header_privat', $data);
@@ -355,9 +355,9 @@ class Index_controller extends CI_Controller
 
         if ($this->ion_auth->logged_in()) {
 
-            $groupadmin = 1;
-            $groupprofe = 2;
-            $groupalumne = 3;
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+            $groupalumne = 'alumne';
 
             if ($this->ion_auth->in_group($groupadmin)) {
                 $this->load->view('templates/header_privat', $data);
@@ -416,9 +416,9 @@ class Index_controller extends CI_Controller
 
         if ($this->ion_auth->logged_in()) {
 
-            $groupadmin = 1;
-            $groupprofe = 2;
-            $groupalumne = 3;
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+            $groupalumne = 'alumne';
 
             if ($this->ion_auth->in_group($groupadmin)) {
                 $this->load->view('templates/header_privat', $data);

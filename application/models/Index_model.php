@@ -82,6 +82,7 @@ class Index_model extends CI_Model
             'tipus_recurs' => $tipus_recurs,
             'acces' => $this->input->post('acces'),
             'categoria' => $this->input->post('curs'),
+            'codiinvitacio' => $this->input->post('acsescodi'),
         );
 
         $this->db->insert('practiques', $data);
@@ -108,13 +109,15 @@ class Index_model extends CI_Model
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
             'explicacio' => $this->input->post('descripciollargaInfografia'),
             'material' => $this->input->post('videofile'),
-            'categoria' => $this->input->post('categoriaPractica'),
+            //'categoria' => $this->input->post('categoriaPractica'),
             'profesor' => $prop,
             'tipus_recurs' => $tipus_recurs,
             'acces' => $this->input->post('acces'),
             'categoria' => $this->input->post('curs'),
+            'codiinvitacio' => $this->input->post('acsescodi'),
         );
 
+        
         $this->db->insert('practiques', $data);
         return $this->db->insert_id();
     }
