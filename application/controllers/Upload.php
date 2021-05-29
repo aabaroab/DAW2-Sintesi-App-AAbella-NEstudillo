@@ -23,7 +23,6 @@ class Upload extends CI_Controller
         public function index()
         {
                 $this->load->library('ion_auth');
-                //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
                 $data['controller'] = $this;
@@ -126,18 +125,10 @@ class Upload extends CI_Controller
 
                                         $this->db->insert('tag_practica', $datatag);
                                 }
-                                //-------------------------------------------------------------
-                                /*$datacurs = array(
-                                        'practica_id' => $idPractica,
-                                        'curs_id' => $this->input->post('curs'),
-                                );
-
-                                $this->db->insert('curs_practica', $datacurs);*/
-                                //-------------------------------------------------------------
                                 $data1 = array('upload_data' => $this->upload->data());
                                 if ($this->ion_auth->logged_in()) {
-                                        $groupadmin = 1;
-                                        $groupprofe = 2;
+                                        $groupadmin = 'admin';
+                                        $groupprofe = 'profesor';
                                         if ($this->ion_auth->in_group($groupadmin)) {
                                                 $this->load->view('templates/header_privat', $data);
                                                 $this->load->view('pages/upload_success', $data1);
@@ -199,8 +190,8 @@ class Upload extends CI_Controller
                         redirect(base_url('crearpractica'));
                 } else {
                         if ($this->ion_auth->logged_in()) {
-                                $groupadmin = 1;
-                                $groupprofe = 2;
+                                $groupadmin = 'admin';
+                                $groupprofe = 'profesor';
                                 if ($this->ion_auth->in_group($groupadmin)) {
                                         $this->load->view('templates/header_privat', $data);
                                         $this->load->view('pages/practicaVideo', $data);
@@ -220,12 +211,11 @@ class Upload extends CI_Controller
                 $this->load->library('ion_auth');
                 $data['controller'] = $this;
                 $data["cat"] = $this->index_model->get_fills(NULL);
-                //$data['autor'] = $this->config->item("copy");
                 $data['user'] =  $this->ion_auth->user()->row();
 
                 if ($this->ion_auth->logged_in()) {
-                        $groupadmin = 1;
-                        $groupprofe = 2;
+                        $groupadmin = 'admin';
+                        $groupprofe = 'profesor';
                         if ($this->ion_auth->in_group($groupadmin)) {
                                 $this->load->view('templates/header_privat', $data);
                                 $this->load->view('pages/archiuVideo', array('error' => ' '));
@@ -252,11 +242,9 @@ class Upload extends CI_Controller
                 $this->form_validation->set_rules('titolInfografia', 'titolInfografia', 'required');
 
 
-                //$practicaId = $this->input->post('titolInfografia');
                 $idPractica = $this->index_model->insert_practicaVideobd($usr->username);
                 mkdir('../../../uploads/' . $idPractica, 0777);
 
-                //$config['upload_path']          = './uploads/';
                 $config['upload_path']          = '../../../uploads/' . $idPractica;
                 $config['allowed_types']        = 'mp4';
                 $config['encrypt_name']        = true;
@@ -290,7 +278,6 @@ class Upload extends CI_Controller
                                         }
                                 }
                         } else {
-                                //$idPractica = $this->index_model->insert_practicaVideobd($usr->username);
                                 foreach ($tags_enviats as &$valor) {
                                         $tagValue = $this->index_model->getTagId($valor);
                                         $tagId = $tagValue['id'];
@@ -321,4 +308,10 @@ class Upload extends CI_Controller
                         }
                 }
         }
+
+
+
+
+
+        
 }
