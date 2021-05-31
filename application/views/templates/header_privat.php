@@ -57,13 +57,13 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="<?php echo base_url('adminUsuaris'); ?>">Gestionar Usuaris</a>
-                    <a class="collapse-item" href="<?php echo base_url('admingroceryusuaris'); ?>">Gestionar Grups</a>
-                    <a class="collapse-item"  href="<?php echo base_url('administrarPractiquesadmin'); ?>">Gestionar Practiques</a>
-                    <a class="collapse-item"  href="<?php echo base_url('adminTags'); ?>">Gestionar Tags</a>
-                    <a class="collapse-item"  href="<?php echo base_url('administratCursos'); ?>">Gestionar Cursos</a>
-                    <a class="collapse-item" href="<?php echo base_url('crearusuariadmin'); ?>">Crear Usuaris</a>
-                    <a class="collapse-item" href="<?php echo base_url('crearpractica'); ?>">Creear Practica</a>
+                    <a class="collapse-item" href="<?php echo base_url('adminUsuaris'); ?>">Gestionar usuaris</a>
+                    <a class="collapse-item" href="<?php echo base_url('admingroceryusuaris'); ?>">Gestionar grups</a>
+                    <a class="collapse-item"  href="<?php echo base_url('administrarPractiquesadmin'); ?>">Gestionar practiques</a>
+                    <a class="collapse-item"  href="<?php echo base_url('adminTags'); ?>">Gestionar etiquetes</a>
+                    <a class="collapse-item"  href="<?php echo base_url('administratCursos'); ?>">Gestionar cursos</a>
+                    <a class="collapse-item" href="<?php echo base_url('crearusuariadmin'); ?>">Crear usuaris</a>
+                    <a class="collapse-item" href="<?php echo base_url('crearpractica'); ?>">Crear practica</a>
                    <!-- <a class="collapse-item" href="<?php echo base_url('crearTag'); ?>">Crear Tag</a> -->
                 </div>
             </div>
@@ -88,9 +88,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
                     <a class="collapse-item" href="<?php echo base_url('perfilusuari'); ?>">Perfil</a>
-                    <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
+                    <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Tancar sessió</a>
                     <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
-                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Forgot Password</a>
+                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Canviar contrasenya</a>
 
                 </div>
             </div>

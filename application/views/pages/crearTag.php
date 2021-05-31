@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etiquetes</title>
 
 
 </head>
@@ -14,7 +14,7 @@
     <form action="<?php echo base_url('crearTag') ?>" method="post" style="width: 50%; margin-left: 25%">
     
         <div class="form-group">
-            <p>Nom Tag:</p>
+            <p>Nom etiquetes:</p>
             <input type="text" class="form-control" id="nomtag" name="nomtag">
         </div>
 

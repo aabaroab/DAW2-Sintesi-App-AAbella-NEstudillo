@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Upload Form</title>
+    <title>Forumlari</title>
 
 
     <script src="https://cdn.tiny.cloud/1/h0eyqfi236byw3c9d1qhtktoermf6bzixitvp4963bg3p1nm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -29,7 +29,7 @@
             <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
         </div>
         <div class="form-group">
-            <p>Descripció Curata:</p>
+            <p>Descripció curta:</p>
             <textarea class="form-control" id="descripciocurtaInfografia" name="descripciocurtaInfografia"></textarea>
         </div>
         <!------------------------------------------------------------------------------------------------------->
@@ -45,7 +45,7 @@
         </script>
         <!------------------------------------------------------------------------------------------------------->
         <div class="form-group">
-            <p>Descripció Llarga:</p>
+            <p>Descripció llarga:</p>
             <textarea id="descripciollargaInfografia" name="descripciollargaInfografia" class="form-control"></textarea>
         </div>
         <!------------------------------------------------------------------------------------------------------->
@@ -75,7 +75,7 @@
             <input type="file" name="videofile" id="videofile" size="20" />
         </div><br />
         <div>
-            <p>Ficher Extra:</p>
+            <p>Fitxer extra:</p>
             <input type="file" name="videofileExtra" id="videofileExtra" size="20" />
         </div>
         <br /><br />
@@ -88,7 +88,7 @@
 
 
         <div>
-            <label for="acces">Tipus d' accés:</label>
+            <label for="acces">Tipus d'accés:</label>
             <select name="acces" id="acces">
                 <option value="Grupusuaris">Grup usuaris</option>
                 <option value="Perfilusuaris">Perfil usuaris</option>

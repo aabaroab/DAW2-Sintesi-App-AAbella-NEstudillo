@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>Modificar usuaris</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
@@ -30,7 +30,7 @@
                                     <p>Nom:</p><input type="text" class="form-control form-control-user" id="NomUsuari" name="NomUsuari" value="<?php echo $info_user->first_name; ?>">
                                 </div>
                                 <div class="col-sm-6">
-                                    <p>Cogonom:</p><input type="text" class="form-control form-control-user" id="CognomsUsuari" name="CognomsUsuari" value="<?php echo $info_user->last_name; ?>">
+                                    <p>Cognom:</p><input type="text" class="form-control form-control-user" id="CognomsUsuari" name="CognomsUsuari" value="<?php echo $info_user->last_name; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -38,13 +38,13 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <p>Nom Usuari:</p><input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>">
+                                    <p>Nom usuari:</p><input type="text" class="form-control form-control-user" id="UsernameUsuari" name="UsernameUsuari" value="<?php echo $info_user->username; ?>">
                                 </div>
                                 <div class="col-sm-6">
                                     <p>Telefon:</p><input type="text" class="form-control form-control-user" id="TelefonUsuari" name="TelefonUsuari" value="<?php echo $info_user->phone; ?>">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                         </form>
                         <hr>
                     </div>

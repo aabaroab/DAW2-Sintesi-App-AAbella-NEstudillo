@@ -22,7 +22,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center"  href="<?php echo base_url('videos'); ?>">
         <img style="width: 50%;" src="assets/img/logoApp.svg">
-        <div class="sidebar-brand-text">DAWTube<sup></sup></div>
+        <div class="sidebar-brand-text">DWTube<sup></sup></div>
     </a>
 
     <!-- Divider -->
@@ -53,7 +53,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="<?php echo base_url('login'); ?>">Login</a>
-                        <a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>
+                        <a class="collapse-item" href="<?php echo base_url('registra'); ?>">Registrarse</a>
                     </div>
                 </div>
             </li>

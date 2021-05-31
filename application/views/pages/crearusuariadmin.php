@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-                <title>CodeIgniter Tutorial</title>
+                <title>Crear comptes</title>
                 <!--<link rel="stylesheet" href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">-->
@@ -21,7 +21,7 @@
                 <div class="col-lg-7" style="margin-left: 20%;">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Crear compte</h1>
                         </div>
                         <form class="user" action="<?php echo base_url('crearusuariadmin') ?>" method="post">
                             <div class="form-group row">

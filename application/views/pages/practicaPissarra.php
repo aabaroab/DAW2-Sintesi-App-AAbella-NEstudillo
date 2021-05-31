@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear practica</title>
 
 
     <script src="https://cdn.tiny.cloud/1/h0eyqfi236byw3c9d1qhtktoermf6bzixitvp4963bg3p1nm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -29,7 +29,7 @@
             <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
         </div>
         <div class="form-group">
-            <p>Descripció Curata:</p>
+            <p>Descripció curta:</p>
             <textarea class="form-control" id="descripciocurtaInfografia" name="descripciocurtaInfografia"></textarea>
         </div>
             <!------------------------------------------------------------------------------------->
@@ -48,7 +48,7 @@
         <!------------------------------------------------------------------------------------->
 
         <div class="form-group">
-            <p>Descripció Llarga:</p>
+            <p>Descripció llarga:</p>
             <textarea id="descripciollargaInfografia" name="descripciollargaInfografia" class="form-control"></textarea>
         </div>
         <!------------------------------------------------------------------------------------->

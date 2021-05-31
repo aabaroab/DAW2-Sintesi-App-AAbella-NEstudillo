@@ -25,7 +25,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('videos'); ?>">
             <img style="width: 50%;" src="assets/img/logoApp.svg">
-            <div class="sidebar-brand-text">DAWTube<sup></sup></div>
+            <div class="sidebar-brand-text">DWTube<sup></sup></div>
         </a>
 
         <!-- Divider -->
@@ -54,9 +54,9 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="<?php echo base_url('crearpractica'); ?>">Creear Practica</a>
-                    <a class="collapse-item" href="<?php echo base_url('administrarPractiques'); ?>">Administrar Practiques</a>
+                    <h6 class="collapse-header">Components:</h6>
+                    <a class="collapse-item" href="<?php echo base_url('crearpractica'); ?>">Crear practica</a>
+                    <a class="collapse-item" href="<?php echo base_url('administrarPractiques'); ?>">Administrar practiques</a>
                 </div>
             </div>
         </li>
@@ -81,9 +81,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Login Screens:</h6>
                     <a class="collapse-item" href="<?php echo base_url('perfilusuari'); ?>">Perfil</a>
-                    <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Logout</a>
+                    <a class="collapse-item" href="<?php echo base_url('logout'); ?>">Tancar sessió</a>
                     <!--<a class="collapse-item" href="<?php echo base_url('registra'); ?>">Register</a>-->
-                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Forgot Password</a>
+                    <a class="collapse-item" href="<?php echo base_url('mostrarcanviarpassword'); ?>">Canviar contrasenya</a>
 
                 </div>
             </div>
