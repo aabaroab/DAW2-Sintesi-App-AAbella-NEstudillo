@@ -73,6 +73,8 @@ $route['canviarpassword'] = 'index_controller/canviarpassword';
 $route['crearpractica'] = 'index_controller/crearpractica';
 $route['crearTag'] = 'index_controller/crearTag';
 
+$route['veurecursos/(:any)'] = 'index_controller/veurecursos/$1';
+
 $route['perfilusuari'] = 'index_controller/perfilusuari';
 $route['practicaVideo'] = 'index_controller/practicaVideo';
 

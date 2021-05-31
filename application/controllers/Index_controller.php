@@ -258,7 +258,7 @@ class Index_controller extends CI_Controller
         echo "<ol>";
 
         foreach ($categories as $cat) {
-            echo "<li>" . $cat['nom'] . "</li>";
+            echo "<li><a href=". base_url('veurecursos/'.$cat['id']).">" . $cat['nom'] . "</a></li>";
 
             $fills = $this->index_model->get_fills($cat['id']);
 
@@ -272,7 +272,7 @@ class Index_controller extends CI_Controller
     {
 
         foreach ($categories as $cat) {
-            echo "<option>" . $cat['nom'] . "</option>";
+            echo '<option value=' . $cat['id'] . '>' . $cat['nom'] . "</option>";
 
             $fills = $this->index_model->get_fills($cat['id']);
 
@@ -539,4 +539,43 @@ class Index_controller extends CI_Controller
             $this->load->view('pages/login', $data);
         }
     }
+
+    //-----------------------------------------------------------------------------------
+    public function veurecursos($slug = NULL)
+    {
+        $user = $this->ion_auth->user()->row();
+        //$id = $user->id;
+        $data["info_user"] = $user;
+        $data['user'] =  $this->ion_auth->user()->row();
+        
+        $data['news_item'] = $this->index_model->get_practiques($slug);
+        //$data['title'] = $data['news_item'];
+        
+
+        if ($this->ion_auth->logged_in()) {
+
+            $groupadmin = 'admin';
+            $groupprofe = 'profesor';
+            $groupalumne = 'alumne';
+
+            if ($this->ion_auth->in_group($groupadmin)) {
+                //$data['news_item'] = $this->index_model->get_practiques($slug);
+                $this->load->view('templates/header_privat', $data);
+                $this->load->view('pages/veurecursos', $data);
+                $this->load->view('templates/footer', $data);
+            } else if ($this->ion_auth->in_group($groupprofe)) {
+                //$data['news_item'] = $this->index_model->get_practiques($slug);
+                $this->load->view('templates/header_profe', $data);
+                $this->load->view('pages/veurecursos', $data);
+                $this->load->view('templates/footer', $data);
+            } else if ($this->ion_auth->in_group($groupalumne)) {
+                //$data['news_item'] = $this->index_model->get_practiques($slug);
+                $this->load->view('templates/header_alumne', $data);
+                $this->load->view('pages/veurecursos', $data);
+                $this->load->view('templates/footer', $data);
+            }
+        }
+    }
+
+    //--------------------------------------------------------------------------------
 }

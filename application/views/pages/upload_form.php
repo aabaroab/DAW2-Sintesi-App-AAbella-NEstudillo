@@ -68,6 +68,7 @@
             <?php
             echo "<select name='curs' id='curs'>";
             echo "<hr>";
+            //$controller->mostrar_tree2($cat['id']);
             $controller->mostrar_tree2($cat);
             echo "</select>";
             ?>

@@ -48,10 +48,8 @@ class Upload extends CI_Controller
         {
 
                 foreach ($categories as $cat) {
-                        echo "<option>" . $cat['nom'] . "</option>";
-
+                        echo '<option value='.$cat['id'].'>' . $cat['nom'] . '</option>';
                         $fills = $this->index_model->get_fills($cat['id']);
-
                         if (count($fills) > 0)
                                 $this->mostrar_tree2($fills);
                 }
@@ -117,12 +115,10 @@ class Upload extends CI_Controller
                                 foreach ($tags_enviats as &$valor) {
                                         $tagValue = $this->index_model->getTagId($valor);
                                         $tagId = $tagValue['id'];
-
                                         $datatag = array(
                                                 'tag_id' => $tagId,
                                                 'practica_id' => $idPractica,
                                         );
-
                                         $this->db->insert('tag_practica', $datatag);
                                 }
                                 $data1 = array('upload_data' => $this->upload->data());
@@ -142,7 +138,6 @@ class Upload extends CI_Controller
                         }
                 } else {
                         if ($this->ion_auth->logged_in()) {
-
                                 $groupadmin = 'admin';
                                 $groupprofe = 'profesor';
                                 if ($this->ion_auth->in_group($groupadmin)) {
@@ -169,14 +164,11 @@ class Upload extends CI_Controller
 
                 $usr = $this->ion_auth->user()->row();
                 $data['user'] = $usr;
-
                 $data['controller'] = $this;
                 $data["cat"] = $this->index_model->get_fills(NULL);
 
                 if ($this->form_validation->run()) {
                         $tags_enviats = $this->input->post("tagsphp");
-
-
                         $idPractica = $this->index_model->insert_practiquesVideo($usr->username);
                         foreach ($tags_enviats as &$valor) {
                                 $tagValue = $this->index_model->getTagId($valor);
@@ -227,6 +219,7 @@ class Upload extends CI_Controller
                         }
                 }
         }
+
 
         public function do_upload_video()
         {
@@ -313,5 +306,5 @@ class Upload extends CI_Controller
 
 
 
-        
+
 }
