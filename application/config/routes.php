@@ -118,3 +118,4 @@ $route['uploadVideo/do_upload_video'] = 'Upload/do_upload_video';
 //$route['upload/do_upload'] = 'Upload/crearInfografia';
 $route['practicaVideo'] = 'Upload/crearVideorecurs';
 
+$route['api/practiques'] = 'sintesis_api/index'; 

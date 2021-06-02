@@ -13,11 +13,11 @@ class Index_model extends CI_Model
     public function get_login($slug = FALSE)
     {
         if ($slug === FALSE) {
-            $query = $this->db->get('news');
+            $query = $this->db->get('practiques');
             return $query->result_array();
         }
 
-        $query = $this->db->get_where('news', array('slug' => $slug));
+        $query = $this->db->get_where('practiques', array('slug' => $slug));
         return $query->row_array();
     }
 //-----------------------------------------------------------------
