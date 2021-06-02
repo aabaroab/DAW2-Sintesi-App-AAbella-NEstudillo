@@ -20,7 +20,7 @@ class Index_model extends CI_Model
         $query = $this->db->get_where('practiques', array('slug' => $slug));
         return $query->row_array();
     }
-//-----------------------------------------------------------------
+    //-----------------------------------------------------------------
     public function get_fills($catid)
     {
         $data = array(
@@ -31,7 +31,7 @@ class Index_model extends CI_Model
 
         return $query->result_array();
     }
-//-----------------------------------------------------------------
+    //-----------------------------------------------------------------
 
     public function getTagId($tagName)
     {
@@ -43,14 +43,14 @@ class Index_model extends CI_Model
 
         return $query->row_array();
     }
-//-----------------------------------------------------------------
+    //-----------------------------------------------------------------
 
     public function insert_practiquesVideo($prop)
     {
         $this->load->helper('url');
 
         $tipus_recurs = 'videorecurs';
-        
+
         $data = array(
             'titul' => $this->input->post('titolInfografia'),
             'descripcio' => $this->input->post('descripciocurtaInfografia'),
@@ -66,7 +66,7 @@ class Index_model extends CI_Model
         $this->db->insert('practiques', $data);
         return $this->db->insert_id();
     }
-
+    //----------------------------------------------------------------------------
     public function insert_practiquesImatge($prop)
     {
         $this->load->helper('url');
@@ -98,7 +98,7 @@ class Index_model extends CI_Model
         return $this->db->insert('tags', $data);
     }
 
-
+    //------------------------------------------------------------------------------
     public function insert_practicaVideobd($prop)
     {
         $this->load->helper('url');
@@ -117,10 +117,15 @@ class Index_model extends CI_Model
             'codiinvitacio' => $this->input->post('acsescodi'),
         );
 
-        
+
         $this->db->insert('practiques', $data);
         return $this->db->insert_id();
     }
+    //----------------------------------------------------------------------------
 
-
+    public function get_practiques($slug = FALSE)
+    {
+        $query = $this->db->get_where('practiques', array('categoria' => $slug));
+        return $query->result_array();
+    }
 }
