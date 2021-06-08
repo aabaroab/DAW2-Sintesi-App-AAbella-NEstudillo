@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'index_controller/videos';
+//$route['default_controller'] = 'Welcome/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -73,12 +74,12 @@ $route['canviarpassword'] = 'index_controller/canviarpassword';
 $route['crearpractica'] = 'index_controller/crearpractica';
 $route['crearTag'] = 'index_controller/crearTag';
 
-$route['veurecursos/(:any)'] = 'index_controller/veurecursos/$1';
+
+
+
 
 $route['perfilusuari'] = 'index_controller/perfilusuari';
 $route['practicaVideo'] = 'index_controller/practicaVideo';
-
-$route['practicaPissarra'] = 'index_controller/practicaPissarra';
 
 
 $route['adminUsuaris'] = "grocery_controller/grocery"; 
@@ -110,14 +111,35 @@ $route['administratCursos/(:any)'] = "grocery_controller/groceryCursos/$1";
 $route['administratCursos/(:any)/(:any)'] = "grocery_controller/groceryCursos/$1/$2";
 
 $route['tree/category'] = 'tree/treecat_controller/index'; 
-//$route['tree/category'] = 'tree/index_controller/index'; 
-//$route['tree/category'] = 'tree/Upload/index'; 
+
 
 $route['upload'] = 'Upload/index'; 
+$route['upload/do_upload'] = 'Upload/do_upload';
+
 $route['uploadVideo'] = 'Upload/indexVideo'; 
-$route['upload/do_upload'] = 'Upload/do_upload'; 
 $route['uploadVideo/do_upload_video'] = 'Upload/do_upload_video'; 
-//$route['upload/do_upload'] = 'Upload/crearInfografia';
+
 $route['practicaVideo'] = 'Upload/crearVideorecurs';
+$route['practicaPissarra'] = 'Upload/practicaPissarra';
+
+$route['veurecursos/(:any)'] = 'Upload/veurecursos/$1';
+$route['plantillaimatge/(:any)'] = 'Upload/plantillaimatge/$1';
+$route['modificarPractica'] = 'Upload/modificarPractica';
+$route['plantillamodificar/(:any)'] = 'Upload/plantillamodificar/$1';
+
+$route['download/(:num)/(:num)'] = 'Upload/download/$1/$2';
+$route['download/(:num)'] = 'Upload/download/$1';
+
 
 $route['api/practiques'] = 'sintesis_api/index'; 
+
+
+
+
+//--------------- Rutes APP I API ---------------------------------------
+
+$route['api_segura/login'] = 'Newsjwt_api/login'; 
+$route['api_segura/logout'] = 'Newsjwt_api/logout'; 
+
+$route['api_segura/index'] = 'Newsjwt_api/index'; 
+$route['api_segura/index/(:num)'] = 'Newsjwt_api/index/$1'; 

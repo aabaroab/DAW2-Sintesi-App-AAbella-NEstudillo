@@ -57,6 +57,7 @@
                     <h6 class="collapse-header">Components:</h6>
                     <a class="collapse-item" href="<?php echo base_url('crearpractica'); ?>">Crear practica</a>
                     <a class="collapse-item" href="<?php echo base_url('administrarPractiques'); ?>">Administrar practiques</a>
+                    <a class="collapse-item" href="<?php echo base_url('modificarPractica'); ?>">Modificar practiques</a>
                 </div>
             </div>
         </li>

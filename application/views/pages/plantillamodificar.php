@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulari</title>
+
+
     <script src="https://cdn.tiny.cloud/1/h0eyqfi236byw3c9d1qhtktoermf6bzixitvp4963bg3p1nm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script type="text/javascript">
         tinymce.init({
@@ -10,7 +17,9 @@
             });
     </script>
     <script src="assets/js/fichersextra.js"></script>
+</head>
 
+<body>
 
     <?php echo $error;
     ?>
@@ -18,7 +27,7 @@
 
         <div class="form-group">
             <p>Titol:</p>
-            <input type="text" class="form-control" id="titolInfografia" name="titolInfografia">
+            <input type="text" class="form-control" id="titolInfografia"  name="titolInfografia">
         </div>
         <div class="form-group">
             <p>Descripció curta:</p>
@@ -112,3 +121,6 @@
         <button type="submit" class="btn btn-primary btn-lg" value="upload" style="margin-left: 40%;">Crear</button>
 
     </form>
+</body>
+
+</html>

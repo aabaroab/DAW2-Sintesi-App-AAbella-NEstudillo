@@ -14,33 +14,33 @@
                                 <th>Tipus Recurs</th>
                                 <th></th>
                             </tr>
-                            <?php foreach ($news_item as $news_item2) : ?>
+                            <?php foreach ($practiques as $practiques) : ?>
                             <tr>
                                 <td>
                                     <div class="form-group">
                                         <div class="col-md-1 col-md-offset-2 text-center"></div>
-                                        <?php echo $news_item2['titul']; ?>
+                                        <?php echo $practiques['titul']; ?>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         <div class="col-md-1 col-md-offset-2 text-center"></div>
-                                        <?php echo $news_item2['descripcio']; ?>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="form-group">
-                                        <div class="col-md-1 col-md-offset-2 text-center"></div>
-                                        <?php echo $news_item2['tipus_recurs']; ?>
+                                        <?php echo $practiques['descripcio']; ?>
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="form-group">
                                         <div class="col-md-1 col-md-offset-2 text-center"></div>
-                                        <!-- <?php echo $news_item2['explicacio']; ?> -->
-                                        <a class="btn btn-primary btn-lg center" type="submit" name="submit" style="margin-left: 50%;" href="<?php echo base_url('plantillaimatge/'.$news_item2['id']); ?>">Detalls</a>
+                                        <?php echo $practiques['tipus_recurs']; ?>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-md-1 col-md-offset-2 text-center"></div>
+                                        <!-- <?php echo $practiques['explicacio']; ?> -->
+                                        <a class="btn btn-primary btn-lg center" type="submit" name="submit" style="margin-left: 50%;" href="<?php echo base_url('plantillamodificar/'.$practiques['id']); ?>">modificar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -52,4 +52,3 @@
         </div>
     </div>
 </div> 
-

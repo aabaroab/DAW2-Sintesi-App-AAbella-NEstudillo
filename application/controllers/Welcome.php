@@ -20,6 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		//$this->load->view('welcome_message');
+		print_r (realpath('../../../uploads/' . 159 . '/' . '5f531d52eca9c2a96098fb9778e6dc9e.png'));
+		die;
 	}
 }

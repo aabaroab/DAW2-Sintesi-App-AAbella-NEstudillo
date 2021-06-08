@@ -15,7 +15,7 @@ class DawFileUploader {
         let colordib = document.createElement("input");
         colordib.type = "file";
         colordib.id = "fitxers" + this.idx;
-        colordib.name = "fitxer[]";
+        colordib.name = "fitxers" + this.idx;
 
         this.container.appendChild(colordib)
         colordib.addEventListener("change", this.validarFitxers);

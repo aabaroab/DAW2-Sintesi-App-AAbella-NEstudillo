@@ -40,7 +40,7 @@
                                         <th><a href="<?php echo base_url('practicaVideo') ?>">Videorecurs</a></th>
                                     </tr>
                                     <tr>
-                                        <th><a href="<?php echo base_url('uploadVideo') ?>">Fitxers de video</a></th>
+                                        <th><a href="<?php echo base_url('uploadVideo/do_upload_video') ?>">Fitxers de video</a></th>
                                     </tr>
                                     <tr>
                                         <th><a href="<?php echo base_url('practicaPissarra') ?>">Pissarra</a></th>

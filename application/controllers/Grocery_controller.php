@@ -220,9 +220,11 @@ class Grocery_controller extends CI_Controller
                 $data['title'] = 'Noticies';
                 $data['autor'] = $this->config->item("copy");
 
-                $crud->columns('titul', 'descripcio', 'explicacio', 'categoria', 'acces', 'codiinvitacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
-                $crud->fields('titul', 'descripcio', 'explicacio', 'categoria', 'acces', 'codiinvitacio', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+                $crud->columns('titul', 'descripcio', 'categoria', 'acces', 'tipus_recurs', 'data_creacio', 'hora_creacio');
+                $crud->fields('titul', 'descripcio', 'categoria', 'acces', 'tipus_recurs', 'data_creacio', 'hora_creacio');
                 $crud->unset_add();
+                $crud->unset_edit();
+                $crud->callback_before_delete(array($this,'delete_file_before_delete2'));
                 $output = $crud->render();
                 
                 $this->_example_outputpractiques($output);
@@ -231,6 +233,17 @@ class Grocery_controller extends CI_Controller
             }
         } else {
             $this->load->view('pages/login', $data);
+        }
+    }
+
+    public function delete_file_before_delete2($primary_key)
+    {
+        $query = $this->db->get_where('practiques', array('id' => $primary_key));
+        $files= $query->result_array();
+        //die($primary_key);
+        foreach ($files as $file) {
+            $ficher = realpath('../../../uploads/' . $primary_key . '/' . $file['nom']);
+            unlink($ficher);
         }
     }
 
@@ -256,6 +269,7 @@ class Grocery_controller extends CI_Controller
         }
     }
 
+
     //-------------------------------------------------------------------------------
 
     public function groceryPractiques2()
@@ -279,13 +293,17 @@ class Grocery_controller extends CI_Controller
                 $crud->columns('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
                 $crud->fields('titul', 'descripcio', 'explicacio', 'tipus_recurs', 'data_creacio', 'hora_creacio', 'profesor');
 
+                
                 $crud->unset_add();
-
-
+                $crud->unset_edit();
+                
+                $crud->callback_before_delete(array($this,'delete_file_before_delete'));
 
                 $output = $crud->render();
 
                 $this->_example_outputpractiques2($output);
+
+                
             } else {
                 $this->load->view('pages/login', $data);
             }
@@ -293,6 +311,17 @@ class Grocery_controller extends CI_Controller
             $this->load->view('pages/login', $data);
         }
     }
+
+    public function delete_file_before_delete($primary_key)
+{
+    $query = $this->db->get_where('practiques', array('id' => $primary_key));
+    $files= $query->result_array();
+    die($primary_key);
+    foreach ($files as $file) {
+        $ficher = '../../../uploads/' . $primary_key . '/' . $file['nom'];
+        unlink($ficher);
+    }
+}
 
     function _example_outputpractiques2($output = null)
     {

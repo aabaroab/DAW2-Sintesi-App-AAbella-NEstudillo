@@ -395,12 +395,12 @@ class Index_controller extends CI_Controller
             $repeatpassword = $this->input->post('repetircontraseña');
 
             if ($this->ion_auth->logged_in($data['user']->username) && $newpassword == $repeatpassword) {
-                $data1 = array(
+                $data = array(
                     'password' => $newpassword,
                 );
             }
 
-            $this->ion_auth->update($id, $data1);
+            $this->ion_auth->update($id, $data);
             if ($this->ion_auth->logged_in($data['user']->username) && $newpassword == $repeatpassword) {
                 redirect(base_url('videos'));
             }
@@ -409,11 +409,12 @@ class Index_controller extends CI_Controller
 
     public function mostrarcanviarpassword()
     {
-        $user = $this->ion_auth->user()->row();
+        //$user = $this->ion_auth->user()->row();
         //$id = $user->id;
-        $data["info_user"] = $user;
+        //$data["info_user"] = $user;
         $data['user'] =  $this->ion_auth->user()->row();
-
+        //print_r($data["user"]);
+        //die;
         if ($this->ion_auth->logged_in()) {
 
             $groupadmin = 'admin';
@@ -486,29 +487,6 @@ class Index_controller extends CI_Controller
     }*/
 
     //---------------------------------------------------------------------
-
-    public function practicaPissarra()
-    {
-        $data['autor'] = $this->config->item("copy");
-        $data['user'] =  $this->ion_auth->user()->row();
-        $data['controller'] = $this;
-        $data["cat"] = $this->index_model->get_fills(NULL);
-
-        if ($this->ion_auth->logged_in()) {
-            $groupprofe = 'profesor';
-            $groupadmin = 'admin';
-
-            if ($this->ion_auth->in_group($groupprofe)) {
-                $this->load->view('templates/header_profe', $data);
-                $this->load->view('pages/practicaPissarra', $data);
-                $this->load->view('templates/footer', $data);
-            } else   if ($this->ion_auth->in_group($groupadmin)) {
-                $this->load->view('templates/header_privat', $data);
-                $this->load->view('pages/practicaPissarra', $data);
-                $this->load->view('templates/footer', $data);
-            }
-        }
-    }
 
     //---------------------------------------------------------------------
 

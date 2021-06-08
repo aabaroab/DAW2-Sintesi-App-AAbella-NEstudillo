@@ -20,7 +20,7 @@
 
 <body>
 
-    <?php echo $error;
+    <?php //echo $error;
     ?>
     <form class="user" action="<?php echo base_url('uploadVideo/do_upload_video') ?>" method="post" enctype="multipart/form-data" style="width: 50%; margin-left: 25%">
 

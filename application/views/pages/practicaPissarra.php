@@ -90,40 +90,48 @@
             //echo $_SERVER["DOCUMENT_ROOT"];
             if (isset($_POST["imagenFinal"])) { 
             
-                echo '<img src="'.$_POST["imagenFinal"].'" border="1">';
-            
-                function uploadImgBase64 ($base64, $name){
-                    $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
-                    $rutaReal = realpath(base_url('/application/'));
-                    chdir($rutaReal);
-                    chdir("../../../");
-                    //$rutaReal = realpath(base_url('/uploads/'));
-					mkdir(/*$rutaReal. */'uploads/' .$name, 0777);
-                    $path= /*$rutaReal. */'uploads/' .$name. '/' .$name;
+                // echo '<img src="'.$_POST["imagenFinal"].'" border="1">';
+                // function uploadImgBase64 ($base64, $name){  
+                //     $datosBase64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64));
+                //     $rutaReal = realpath(base_url('/application/'));
+                //     chdir($rutaReal);
+                //     chdir("../../../");
+                //     //print_r($name);
+                //     //die;
+                //     //$rutaReal = realpath(base_url('/uploads/'));
+				// 	mkdir(/*$rutaReal. */'uploads/' .$name, 0777);
+                //     $path= /*$rutaReal. */'uploads/' .$name. '/' .$name;
                     
-                    if(!file_put_contents($path, $datosBase64)){
-                        echo "Error";
-                        return false;
-                    }
-                    else{
-                        echo "Guardado con exito";
-                        return true;
-                    }
-                }
-                uploadImgBase64($_POST["imagenFinal"], 'imgPissarra_'.date('d_m_Y_H_i_s').'.png' );
+                //     if(!file_put_contents($path, $datosBase64)){
+                //         echo "Error";
+                //         return false;
+                //     }
+                //     else{
+                //         echo "Guardado con exito";
+                //         return true;
+                //     }
+                // }
+                // uploadImgBase64($_POST["imagenFinal"], 'imgPissarra_'.date('d_m_Y_H_i_s').'.png' );
+                // $nompissarra='imgPissarra_'.date('d_m_Y_H_i_s').'.png';
             }
             ?>
         </div>
 
         <div class="form-group">
             <p>Categoria:</p>
-            <input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">
+            <!--<input type="text" class="form-control" id="categoriaPractica" name="categoriaPractica">-->
+            <?php
+                echo "<select name='curs' id='curs'>";
+                echo "<hr>";
+                $controller->mostrar_tree2($cat);
+                echo "</select>"; 
+            ?>
         </div>
         <?php $query = $this->db->get('tags');
 
         foreach ($query->result() as $row) { ?>
-            <input type="checkbox" id="tag" name="tag" value="<?php $row->nom; ?>"> <label for="tag" id="tag" neme="tag"> <?php echo $row->nom; ?></label><br>
-        <?php } ?>
+            <input type="checkbox" id="tag" name="tagsphp[]" value="<?php echo $row->nom; ?>"> <label for="tag" id="taglabel"> <?php echo $row->nom; ?></label><br>
+        <?php } ?>      
 
         <button type="submit" class="btn btn-primary btn-lg" style="width: 30%; margin-left: 30%"onclick="saveImage()">Crear</button>
 

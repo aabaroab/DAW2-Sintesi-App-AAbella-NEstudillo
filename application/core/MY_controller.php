@@ -71,18 +71,18 @@ class JwtAPI_Controller extends API_Controller{
             $jwt = $this->renewJWT(); // Get new Token and set to HTTP header
 
             $message = [
-                'status' => REST_Controller::HTTP_OK,
+                'status' => API_Controller::HTTP_OK,
                 'token' => $jwt,
                 'message' => 'User logged'
             ];
-            $this->set_response($message, REST_Controller::HTTP_OK); // 200
+            $this->set_response($message, API_Controller::HTTP_OK); // 200
         } else {
             $message = [
-                'status' => REST_Controller::HTTP_UNAUTHORIZED,
+                'status' => API_Controller::HTTP_UNAUTHORIZED,
                 'token' => "",
                 'message' => 'Bad username/password'
             ];
-            $this->set_response($message, REST_Controller::HTTP_UNAUTHORIZED); // 401
+            $this->set_response($message, API_Controller::HTTP_UNAUTHORIZED); // 401
         }
     }
 
